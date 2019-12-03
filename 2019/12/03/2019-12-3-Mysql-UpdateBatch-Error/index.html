@@ -7,15 +7,17 @@
   
   
   
-  <title>Archives | Funing Ma&#39;s Blog</title>
+  <title>Mysql UpdateBatch Error | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Developer. Designer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Funing Ma&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="Mysql数据使用MyBatis批量更新错误">
+<meta name="keywords" content="Mysql,MyBatis,UpdateBatch Error">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql UpdateBatch Error">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2019&#x2F;12&#x2F;03&#x2F;2019-12-3-Mysql-UpdateBatch-Error&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="Developer. Designer">
+<meta property="og:description" content="Mysql数据使用MyBatis批量更新错误">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-03T12:20:05.553Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
@@ -41,8 +43,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -227,208 +229,190 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-2019-12-3-Mysql-UpdateBatch-Error" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/" class="archive-article-date">
-      <time datetime="2019-12-03T10:18:18.000Z" itemprop="datePublished">12-03</time>
+    <div class="article-meta">
+      <a  href="/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/" class="article-date">
+      <time datetime="2019-12-03T10:18:18.000Z" itemprop="datePublished">2019-12-03</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mysql UpdateBatch Error
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/database/">database</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UpdateBatch-Error/" rel="tag">UpdateBatch Error</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Mysql数据使用MyBatis批量更新错误</p>
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前些时间开发一个功能模块，使用的是Mysql5.7数据库，用MyBatis注解方式批量更新数据。结果遇到一个坑，这里记录一下，给同样遇到类似问题的人一个参考。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>本人使用注解方式开发模块，而注解方式有两种：<br>批量更新数据方法（1）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> @<span class="keyword">Update</span>(</span><br><span class="line"> <span class="string">"&lt;script&gt;"</span></span><br><span class="line">     + <span class="string">"&lt;foreach collection = 'obj' item ='item' open='' close='' separator=';'&gt;"</span></span><br><span class="line">     + <span class="string">"UPDATE table_name SET db_filed_name =#&#123;item.entity_name&#125; "</span></span><br><span class="line">     + <span class="string">"WHERE  db_filed_name =#&#123;item.entity_name&#125; "</span></span><br><span class="line">     + <span class="string">"AND db_filed_name=#&#123;item.entity_name&#125;"</span></span><br><span class="line">     + <span class="string">"&lt;/foreach&gt;"</span></span><br><span class="line">     + <span class="string">"&lt;/script&gt;"</span>)</span><br><span class="line"><span class="built_in">int</span> updateBatch(@Param(<span class="string">"obj"</span>) <span class="keyword">List</span>&lt;<span class="keyword">Object</span>&gt; objs);</span><br></pre></td></tr></table></figure>
+<p>批量更新数据方法（2）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">Update</span>(&#123;</span><br><span class="line">    <span class="string">"&lt;script&gt; UPDATE table_name  "</span></span><br><span class="line">        + <span class="string">"&lt;trim prefix ='set' prefixOverrides=',' &gt; "</span></span><br><span class="line">        + <span class="string">"&lt;trim prefix ='db_filed_name = case' suffix='end'&gt;"</span></span><br><span class="line">        + <span class="string">"&lt;foreach collection ='objs' item ='item' index = 'index'&gt; "</span></span><br><span class="line">        + <span class="string">"WHEN db_filed_name = #&#123;item.entity_name&#125; THEN #&#123;item.entity_name&#125; "</span></span><br><span class="line">        + <span class="string">"&lt;/foreach&gt;"</span></span><br><span class="line">        + <span class="string">"&lt;/trim&gt; "</span></span><br><span class="line">        + <span class="string">"&lt;/trim&gt; "</span></span><br><span class="line">        + <span class="string">"WHERE  db_filed_name IN "</span></span><br><span class="line">        + <span class="string">"&lt;foreach collection ='objs' item ='items' index ='index' separator=',' open='(' close=')'  &gt; "</span></span><br><span class="line">        + <span class="string">"#&#123;items.entity_name&#125; "</span></span><br><span class="line">        + <span class="string">"&lt;/foreach&gt; "</span></span><br><span class="line">        + <span class="string">"&lt;/script&gt;"</span>&#125;)</span><br><span class="line">  <span class="built_in">int</span> updateBatchName(@Param(<span class="string">"objs"</span>) <span class="keyword">List</span>&lt;<span class="keyword">Object</span>&gt; objs);</span><br></pre></td></tr></table></figure>
+
+<p>这次我使用的是第一种方式，结果报了如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;UPDATE</span><br></pre></td></tr></table></figure>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>当时以为是sql错误，直接把sql贴到Navicat直接运行，发现sql没有问题。继续查询解决方法，结果发现原来mysql的批量更新是要我们主动去设置的。而之前一直用Oracle 11g。Oracle 11g默认是开启支持批量跟新的，所有之前使用Oracle 11g时一直没有类似的问题。mysql的批量更新设置，在url末尾加&amp;allowMultiQueries=true即可。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.datasource.driverClassName</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://127.0.0.1:3306/mytest_db?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">123456</span></span><br></pre></td></tr></table></figure>
+<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><p><a href="https://blog.csdn.net/qq_39185919/article/details/93792243" target="_blank" rel="noopener">mybatis批量更新踩坑</a><br><a href="https://www.cnblogs.com/Im-Victor/p/11075708.html" target="_blank" rel="noopener">Mysql批量更新的一个坑-&amp;allowMultiQueries=true允许批量更新</a><br><a href="https://my.oschina.net/zhuguowei/blog/411853" target="_blank" rel="noopener">Jdbc Url 设置allowMultiQueries为true和false时底层处理机制研究</a></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span> Article Title:</span><a  href="/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></p>
+        <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
+        <p><span>  Release Time:</span>2019-12-03 18:18:18</p>
+        <p><span>   Last Update:</span>2019-12-03 20:20:05</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/" title="Mysql UpdateBatch Error">https://mafuning.github.io/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/</a>
+        </p>
+        <p>
+            <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://www.gnu.org/licenses/gpl-3.0.txt" target="_blank" title="GNU GENERAL PUBLIC LICENSE" target = "_blank">"GNU GENERAL PUBLIC LICENSE"</a>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mastering Markdown</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Content</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延伸"><span class="toc-number">4.</span> <span class="toc-text">延伸</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="hide"  title="click hide content or display content">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "hide";
+    var valueShow = "dispaly";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" class="archive-article-date">
-      <time datetime="2019-11-19T10:18:18.000Z" itemprop="datePublished">11-19</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
+        
+        <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" title="Next: Mastering Markdown">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-3-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2019/11/18/2019-11-18-Git-Handbook/" class="archive-article-date">
-      <time datetime="2019-11-18T10:18:18.000Z" itemprop="datePublished">11-18</time>
-</a>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/database/">database</a>
-    </div>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DVCS/" rel="tag">DVCS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" class="archive-article-date">
-      <time datetime="2019-11-17T10:18:18.000Z" itemprop="datePublished">11-17</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/front-end/">front-end</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpages/" rel="tag">Webpages</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2019/11/16/2019-11-16-Hello-World/" class="archive-article-date">
-      <time datetime="2019-11-16T10:18:18.000Z" itemprop="datePublished">11-16</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/back-end/">back-end</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Quick-Start/" rel="tag">Quick Start</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -520,18 +504,6 @@ ga('send', 'pageview');
         };
     })
 </script>
-
-    <button class="hide-labels">TAG ON-OFF</button>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
