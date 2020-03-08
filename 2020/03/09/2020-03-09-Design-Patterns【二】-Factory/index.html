@@ -7,18 +7,20 @@
   
   
   
-  <title>Mysql UpdateBatch Error | Funing Ma&#39;s Blog</title>
+  <title>Design Patterns(二) Factory | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mysql数据使用MyBatis批量更新错误">
-<meta name="keywords" content="Mysql,MyBatis,UpdateBatch Error">
+  <meta name="description" content="Factory pattern is one of the most used design patterns in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.">
+<meta name="keywords" content="Design Patterns,Factory">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql UpdateBatch Error">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2019&#x2F;12&#x2F;03&#x2F;2019-12-03-Mysql-UpdateBatch-Error&#x2F;index.html">
+<meta property="og:title" content="Design Patterns(二) Factory">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;09&#x2F;2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="Mysql数据使用MyBatis批量更新错误">
+<meta property="og:description" content="Factory pattern is one of the most used design patterns in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-06T13:39:15.038Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;09&#x2F;2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory&#x2F;simplefactory.png">
+<meta property="og:updated_time" content="2020-03-08T16:39:53.284Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;09&#x2F;2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory&#x2F;simplefactory.png">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -229,11 +231,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2019-12-03-Mysql-UpdateBatch-Error" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-09-Design-Patterns【二】-Factory" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/" class="article-date">
-      <time datetime="2019-12-03T10:18:18.000Z" itemprop="datePublished">2019-12-03</time>
+      <a  href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/" class="article-date">
+      <time datetime="2020-03-09T10:18:18.000Z" itemprop="datePublished">2020-03-09</time>
 </a>
 
     </div>
@@ -247,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mysql UpdateBatch Error
+      Design Patterns(二) Factory
     </h1>
   
 
@@ -257,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/database/">database</a>
+    <a class="article-category-link" href="/categories/backend/">backend</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UpdateBatch-Error/" rel="tag">UpdateBatch Error</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Factory/" rel="tag">Factory</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -273,22 +275,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Mysql数据使用MyBatis批量更新错误</p>
+        <p>Factory pattern is one of the most used design patterns in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.</p>
 <a id="more"></a>
 
-<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;前些时间开发一个功能模块，使用的是Mysql5.7数据库，用MyBatis注解方式批量更新数据。结果遇到一个坑，这里记录一下，给同样遇到类似问题的人一个参考。</p>
-<h1 id="二、问题"><a href="#二、问题" class="headerlink" title="二、问题"></a><strong>二、问题</strong></h1><p>&ensp;&ensp;&ensp;&ensp;本人使用注解方式开发模块，而注解方式有两种：</p>
-<ul>
-<li>批量更新数据方法（1）<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> @<span class="keyword">Update</span>(</span><br><span class="line"> <span class="string">"&lt;script&gt;"</span></span><br><span class="line">     + <span class="string">"&lt;foreach collection = 'obj' item ='item' open='' close='' separator=';'&gt;"</span></span><br><span class="line">     + <span class="string">"UPDATE table_name SET db_filed_name =#&#123;item.entity_name&#125; "</span></span><br><span class="line">     + <span class="string">"WHERE  db_filed_name =#&#123;item.entity_name&#125; "</span></span><br><span class="line">     + <span class="string">"AND db_filed_name=#&#123;item.entity_name&#125;"</span></span><br><span class="line">     + <span class="string">"&lt;/foreach&gt;"</span></span><br><span class="line">     + <span class="string">"&lt;/script&gt;"</span>)</span><br><span class="line"><span class="built_in">int</span> updateBatch(@Param(<span class="string">"obj"</span>) <span class="keyword">List</span>&lt;<span class="keyword">Object</span>&gt; objs);</span><br></pre></td></tr></table></figure></li>
-<li>批量更新数据方法（2）<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">Update</span>(&#123;</span><br><span class="line">    <span class="string">"&lt;script&gt; UPDATE table_name  "</span></span><br><span class="line">        + <span class="string">"&lt;trim prefix ='set' prefixOverrides=',' &gt; "</span></span><br><span class="line">        + <span class="string">"&lt;trim prefix ='db_filed_name = case' suffix='end'&gt;"</span></span><br><span class="line">        + <span class="string">"&lt;foreach collection ='objs' item ='item' index = 'index'&gt; "</span></span><br><span class="line">        + <span class="string">"WHEN db_filed_name = #&#123;item.entity_name&#125; THEN #&#123;item.entity_name&#125; "</span></span><br><span class="line">        + <span class="string">"&lt;/foreach&gt;"</span></span><br><span class="line">        + <span class="string">"&lt;/trim&gt; "</span></span><br><span class="line">        + <span class="string">"&lt;/trim&gt; "</span></span><br><span class="line">        + <span class="string">"WHERE  db_filed_name IN "</span></span><br><span class="line">        + <span class="string">"&lt;foreach collection ='objs' item ='items' index ='index' separator=',' open='(' close=')'  &gt; "</span></span><br><span class="line">        + <span class="string">"#&#123;items.entity_name&#125; "</span></span><br><span class="line">        + <span class="string">"&lt;/foreach&gt; "</span></span><br><span class="line">        + <span class="string">"&lt;/script&gt;"</span>&#125;)</span><br><span class="line">  <span class="built_in">int</span> updateBatchName(@Param(<span class="string">"objs"</span>) <span class="keyword">List</span>&lt;<span class="keyword">Object</span>&gt; objs);</span><br></pre></td></tr></table></figure>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
+<h1 id="二、简单工厂模式"><a href="#二、简单工厂模式" class="headerlink" title="二、简单工厂模式"></a><strong>二、简单工厂模式</strong></h1><p>介绍：</p>
+<p>1) 简单工厂模式是属于创建型模式，是工厂模式的一种。 简单工厂模式是由一个工厂对象决定创建出哪一 种产品类 的实例。简单工厂模式是工厂模式家族中最简单实用的模式；<br>2) 简单工厂模式：定义了一个创建对象的类，由这个类来 封装实例化对象的行为(代码)；<br>3) 在软件开发中，当我们会用到大量的创建某种、某类或者某批对象时，就会使用到工厂模式。</p>
+<p>简单工厂模式结构图：</p>
+<img src="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/simplefactory.png" class title="introduction">
 
-</li>
-</ul>
-<p>这次我使用的是第一种方式，结果报了如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;UPDATE</span><br></pre></td></tr></table></figure>
-<h1 id="三、解决"><a href="#三、解决" class="headerlink" title="三、解决"></a><strong>三、解决</strong></h1><p>&ensp;&ensp;&ensp;&ensp;当时以为是sql错误，直接把sql贴到Navicat直接运行，发现sql没有问题。继续查询解决方法，结果发现原来mysql的批量更新是要我们主动去设置的。而之前一直用Oracle 11g。但是一直没有类似的问题。mysql的批量更新设置，在url末尾加&amp;allowMultiQueries=true即可。</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.datasource.driverClassName</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://127.0.0.1:3306/mytest_db?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">123456</span></span><br></pre></td></tr></table></figure>
-<h1 id="四、延伸"><a href="#四、延伸" class="headerlink" title="四、延伸"></a><strong>四、延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/qq_39185919/article/details/93792243" target="_blank" rel="noopener">mybatis批量更新踩坑</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.cnblogs.com/Im-Victor/p/11075708.html" target="_blank" rel="noopener">Mysql批量更新的一个坑-&amp;allowMultiQueries=true允许批量更新</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://my.oschina.net/zhuguowei/blog/411853" target="_blank" rel="noopener">Jdbc Url 设置allowMultiQueries为true和false时底层处理机制研究</a></p>
+<br>
+
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-07 19:48</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 简单工厂模式</span></span><br><span class="line"><span class="comment"> * JDK类库中广泛使用了简单工厂模式，如工具类java.text.DateFormat，它用于格式化一个本地日期或者时间。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Computer <span class="title">createComputer</span><span class="params">(String brand)</span> </span>&#123;</span><br><span class="line">        Computer computer = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">switch</span> (brand) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"hp"</span>:</span><br><span class="line">                computer = <span class="keyword">new</span> Hp();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"dell"</span>:</span><br><span class="line">                computer = <span class="keyword">new</span> Dell();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"asus"</span>:</span><br><span class="line">                computer = <span class="keyword">new</span> Asus();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                computer = <span class="keyword">new</span> Other();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> computer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SimpleFactory.createComputer(<span class="string">"hp"</span>).start();</span><br><span class="line">        SimpleFactory.createComputer(<span class="string">"dell"</span>).start();</span><br><span class="line">        SimpleFactory.createComputer(<span class="string">"asus"</span>).start();</span><br><span class="line">        SimpleFactory.createComputer(<span class="string">"apple"</span>).start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hp</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"惠普电脑启动了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dell</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"戴尔电脑启动了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Asus</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"华硕电脑启动了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Other</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"杂牌电脑启动了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、工厂方法模式"><a href="#三、工厂方法模式" class="headerlink" title="三、工厂方法模式"></a><strong>三、工厂方法模式</strong></h1><p>介绍：<br>1)工厂方法(Factory Method)模式的意义是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。核心工厂类不再负责产品的创建，这样核心类成为一个抽象工厂角色，仅负责具体工厂子类必须实现的接口，这样进一步抽象化的好处是使得工厂方法模式可以使系统在不修改具体工厂角色的情况下引进新的产品；</p>
+<p>2)工厂方法模式是简单工厂模式的衍生，解决了许多简单工厂模式的问题。首先完全实现‘开－闭 原则’，实现了可扩展。其次更复杂的层次结构，可以应用于产品结果复杂的场合。</p>
+<p>3)工厂方法模式对简单工厂模式进行了抽象。有一个抽象的Factory类（可以是抽象类和接口），这个类将不再负责具体的产品生产，而是只制定一些规范，具体的生产工作由其子类去完成。在这个模式中，工厂类和产品类往往可以依次对应。即一个抽象工厂对应一个抽象产品，一个具体工厂对应一个具体产品，这个具体的工厂就负责生产对应的产品。</p>
+<p>4)工厂方法模式(Factory Method pattern)是最典型的模板方法模式(Template Method pattern)应用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="四、抽象工厂模式"><a href="#四、抽象工厂模式" class="headerlink" title="四、抽象工厂模式"></a><strong>四、抽象工厂模式</strong></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a><strong>五、总结</strong></h1><p>工厂模式虽然遵守开闭原则，又保持了封装对象创建过程的优点，但工厂模式的缺点也是显而易见的，就是每增加一个产品类，就需要增加一个对应的工厂类，增加了额外的开发量。相对于工厂模式，简单工厂模式的优点是不用每个产品类都对应一个产品工厂类，简化开发流程，但是缺点是如果新增产品类就需要修改工厂类，违背开闭原则，不过可以通过反射机制解决这个问题。</p>
+<h1 id="六、延伸"><a href="#六、延伸" class="headerlink" title="六、延伸"></a><strong>六、延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/5cb52d84bd6d" target="_blank" rel="noopener">简单工厂模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/50ea47e58596" target="_blank" rel="noopener">工厂方法模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av57936239" target="_blank" rel="noopener">尚硅谷Java设计模式，韩顺平图解java设计模式</a></p>
 
       
     </div>
@@ -297,12 +306,12 @@
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2019-12-03 18:18:18</p>
-        <p><span>   Last Update:</span>2019-12-06 21:39:15</p>
+        <p><span>  Release Time:</span>2020-03-09 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-09 00:39:53</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/" title="Mysql UpdateBatch Error">https://mafuning.github.io/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/" title="Design Patterns(二) Factory">https://mafuning.github.io/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -313,18 +322,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Mysql Oracle Mybatis Annotation Sql
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mastering Markdown</div>
+    <a  href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Data Structure LinkedList</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -336,7 +336,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、问题"><span class="toc-number">2.</span> <span class="toc-text">二、问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、解决"><span class="toc-number">3.</span> <span class="toc-text">三、解决</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、延伸"><span class="toc-number">4.</span> <span class="toc-text">四、延伸</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、简单工厂模式"><span class="toc-number">2.</span> <span class="toc-text">二、简单工厂模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、工厂方法模式"><span class="toc-number">3.</span> <span class="toc-text">三、工厂方法模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、抽象工厂模式"><span class="toc-number">4.</span> <span class="toc-text">四、抽象工厂模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、总结"><span class="toc-number">5.</span> <span class="toc-text">五、总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、延伸"><span class="toc-number">6.</span> <span class="toc-text">六、延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -385,13 +385,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/" title="Previous: Mysql Oracle Mybatis Annotation Sql">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" title="Next: Mastering Markdown">
+            <a  href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/" title="Next: Data Structure LinkedList">
                 <i class="fa fa-angle-right"></i>
             </a>
         
