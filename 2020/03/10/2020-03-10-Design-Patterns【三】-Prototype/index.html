@@ -18,7 +18,7 @@
 <meta property="og:description" content="Prototype pattern refers to creating duplicate object while keeping performance in mind. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to cre">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;10&#x2F;2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype&#x2F;prototypeUML.png">
-<meta property="og:updated_time" content="2020-03-10T14:44:59.028Z">
+<meta property="og:updated_time" content="2020-03-10T14:52:23.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;10&#x2F;2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype&#x2F;prototypeUML.png">
   
@@ -278,10 +278,10 @@
         <p>Prototype pattern refers to creating duplicate object while keeping performance in mind. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.</p>
 <a id="more"></a>
 
-<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;原型模式（Prototype Pattern）是用于创建重复的对象，同时又能保证性能。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。这种模式是实现了一个原型接口，该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一个高代价的数据库操作之后被创建。我们可以缓存该对象，在下一个请求时返回它的克隆，在需要的时候更新数据库，以此来减少数据库调用</p>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;原型模式（Prototype Pattern）是用于创建重复的对象，同时又能保证性能。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。这种模式是实现了一个原型接口，该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一个高代价的数据库操作之后被创建。我们可以缓存该对象，在下一个请求时返回它的克隆，在需要的时候更新数据库，以此来减少数据库调用。</p>
 <h1 id="二、原型模式"><a href="#二、原型模式" class="headerlink" title="二、原型模式"></a><strong>二、原型模式</strong></h1><p>介绍：</p>
 <p>1) 原型模式(Prototype模式)是指：用原型实例指定创建对象的种类，并且通过拷贝这些原型，创建新的对象;<br>2) 原型模式是一种创建型设计模式，允许一个对象再创建另外一个可定制的对象，无需知道如何创建的细节;<br>3) 工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动创建的对象通过请求原型对象拷贝它们自己来实施创建，即 对象.clone()。</p>
-<p>原 型式 模式-原 原图：</p>
+<p>原型式模式-UML图：</p>
 <img src="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/prototypeUML.png" class title="introduction">
 
 <br>
@@ -303,7 +303,7 @@
         <p><span> Article Title:</span><a  href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
         <p><span>  Release Time:</span>2020-03-10 18:18:18</p>
-        <p><span>   Last Update:</span>2020-03-10 22:44:59</p>
+        <p><span>   Last Update:</span>2020-03-10 22:52:23</p>
         <p>
             <span>Original Link:</span><a class="post-url" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/" title="Design Patterns(三) Prototype">https://mafuning.github.io/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/</a>
         </p>
@@ -317,8 +317,8 @@
 <nav id="article-nav">
   
   
-    <a  href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Design Patterns(二) Factory</div>
+    <a  href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Data Structure LinkedList</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -383,12 +383,12 @@
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/" title="Next: Design Patterns(二) Factory">
+            <a  href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/" title="Next: Data Structure LinkedList">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
