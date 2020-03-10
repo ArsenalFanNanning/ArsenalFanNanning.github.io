@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Design Patterns(三) Prototype | Funing Ma&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Prototype pattern refers to creating duplicate object while keeping performance in mind. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to cre">
+<meta name="keywords" content="Design Patterns,Prototype">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design Patterns(三) Prototype">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;10&#x2F;2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype&#x2F;index.html">
+<meta property="og:site_name" content="Funing Ma&#39;s Blog">
+<meta property="og:description" content="Prototype pattern refers to creating duplicate object while keeping performance in mind. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to cre">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;10&#x2F;2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype&#x2F;prototypeUML.png">
+<meta property="og:updated_time" content="2020-03-10T14:44:59.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;10&#x2F;2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype&#x2F;prototypeUML.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Funing Ma</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Developer. Designer</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Links</li>
+                        
+                        
+                        <li>About</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">article</a></li>
+                        
+                            <li><a  href="/categories/backend">backend</a></li>
+                        
+                            <li><a  href="/categories/frontend">frontend</a></li>
+                        
+                            <li><a  href="/categories/database">database</a></li>
+                        
+                            <li><a  href="/categories/algorithm">algorithm</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                            
+                                <a class="fl twitter"  target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                            
+                                <a class="fl google"  target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/DVCS/" style="font-size: 10px;">DVCS</a> <a href="/tags/Data-Structure/" style="font-size: 20px;">Data Structure</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Design-Patterns/" style="font-size: 20px;">Design Patterns</a> <a href="/tags/Factory/" style="font-size: 10px;">Factory</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/LinkedList/" style="font-size: 10px;">LinkedList</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MyBatis/" style="font-size: 15px;">MyBatis</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Principles/" style="font-size: 10px;">Principles</a> <a href="/tags/Prototype/" style="font-size: 10px;">Prototype</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-Start/" style="font-size: 10px;">Quick Start</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Sparse-Array/" style="font-size: 10px;">Sparse Array</a> <a href="/tags/UpdateBatch-Error/" style="font-size: 10px;">UpdateBatch Error</a> <a href="/tags/Webpages/" style="font-size: 10px;">Webpages</a> <a href="/tags/algorithm/" style="font-size: 20px;">algorithm</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com">jianshu</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer.Designer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Home">Funing Ma</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Home">Funing Ma</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Developer. Designer</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">article</a></li>
+                
+                    <li><a href="/categories/backend">backend</a></li>
+                
+                    <li><a href="/categories/frontend">frontend</a></li>
+                
+                    <li><a href="/categories/database">database</a></li>
+                
+                    <li><a href="/categories/algorithm">algorithm</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                    
+                        <a class="google" target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2020-03-10-Design-Patterns【三】-Prototype" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/" class="article-date">
+      <time datetime="2020-03-10T10:18:18.000Z" itemprop="datePublished">2020-03-10</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Design Patterns(三) Prototype
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">backend</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prototype/" rel="tag">Prototype</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Prototype pattern refers to creating duplicate object while keeping performance in mind. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.</p>
+<a id="more"></a>
+
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;原型模式（Prototype Pattern）是用于创建重复的对象，同时又能保证性能。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。这种模式是实现了一个原型接口，该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。例如，一个对象需要在一个高代价的数据库操作之后被创建。我们可以缓存该对象，在下一个请求时返回它的克隆，在需要的时候更新数据库，以此来减少数据库调用</p>
+<h1 id="二、原型模式"><a href="#二、原型模式" class="headerlink" title="二、原型模式"></a><strong>二、原型模式</strong></h1><p>介绍：</p>
+<p>1) 原型模式(Prototype模式)是指：用原型实例指定创建对象的种类，并且通过拷贝这些原型，创建新的对象;<br>2) 原型模式是一种创建型设计模式，允许一个对象再创建另外一个可定制的对象，无需知道如何创建的细节;<br>3) 工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动创建的对象通过请求原型对象拷贝它们自己来实施创建，即 对象.clone()。</p>
+<p>原 型式 模式-原 原图：</p>
+<img src="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/prototypeUML.png" class title="introduction">
+
+<br>
+
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-10 20:03</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 原型模式</span></span><br><span class="line"><span class="comment"> * Spring 框架的 scope="prototype" 用到了原型模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Sheep sheep1 = <span class="keyword">new</span> Sheep(<span class="string">"laowang"</span>, <span class="number">18</span>);</span><br><span class="line">        Friend friend = <span class="keyword">new</span> Friend(<span class="string">"Friend"</span>, <span class="number">28</span>);</span><br><span class="line">        sheep1.setFriend(friend);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//深拷贝法一</span></span><br><span class="line">        <span class="comment">//Sheep sheep2 = (Sheep) sheep1.clone();</span></span><br><span class="line">        <span class="comment">//深拷贝法二</span></span><br><span class="line">        Sheep sheep2 = (Sheep) sheep1.deepClone();</span><br><span class="line">        sheep1.getFriend().setName(<span class="string">"Friend Change"</span>);</span><br><span class="line">        System.out.println(<span class="string">"sheep1:"</span> + sheep1);</span><br><span class="line">        System.out.println(<span class="string">"sheep2:"</span> + sheep2);</span><br><span class="line">        System.out.println(sheep1 == sheep2);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sheep</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> Friend friend;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sheep</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Friend <span class="title">getFriend</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> friend;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFriend</span><span class="params">(Friend friend)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.friend = friend;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Sheep&#123;"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", age="</span> + age +</span><br><span class="line">                <span class="string">", friend="</span> + friend +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 浅拷贝</span></span><br><span class="line"><span class="comment">     * 1) 对于数据类型是基本数据类型的成员变量，浅拷贝会直接进行值传递，也就是将</span></span><br><span class="line"><span class="comment">     * 该属性值复制一份给新的对象。</span></span><br><span class="line"><span class="comment">     * 2) 对于数据类型是引用数据类型的成员变量，比如说成员变量是某个数组、某个类</span></span><br><span class="line"><span class="comment">     * 的对象等，那么浅拷贝会进行引用传递，也就是只是将该成员变量的引用值（内</span></span><br><span class="line"><span class="comment">     * 存地址）复制一份给新的对象。因为实际上两个对象的该成员变量都指向同一个</span></span><br><span class="line"><span class="comment">     * 实例。在这种情况下，在一个对象中修改该成员变量会影响到另一个对象的该成</span></span><br><span class="line"><span class="comment">     * 员变量值</span></span><br><span class="line"><span class="comment">     * 3) 前面我们克隆羊就是浅拷贝</span></span><br><span class="line"><span class="comment">     * 4) 浅拷贝是使用默认的 clone()方法来实现</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">/*@Override</span></span><br><span class="line"><span class="comment">    protected Object clone() &#123;</span></span><br><span class="line"><span class="comment">        try &#123;</span></span><br><span class="line"><span class="comment">            return super.clone();</span></span><br><span class="line"><span class="comment">        &#125; catch (CloneNotSupportedException e) &#123;</span></span><br><span class="line"><span class="comment">            e.printStackTrace();</span></span><br><span class="line"><span class="comment">            return null;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">    &#125;*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 深拷贝方式一</span></span><br><span class="line"><span class="comment">     * 重写clone方法来实现深拷贝</span></span><br><span class="line"><span class="comment">     * （不推荐）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Object deep = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            deep = <span class="keyword">super</span>.clone();</span><br><span class="line">            Sheep sheep = (Sheep) deep;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//对引用类型的属性，进行单独处理.如果有多个引用类型的话就需要处理多个，所以不推荐</span></span><br><span class="line">            <span class="keyword">if</span> (friend != <span class="keyword">null</span>) &#123;</span><br><span class="line">                sheep.friend = (Friend) friend.clone();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sheep;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 深拷贝 - 方式2 通过对象的序列化实现 (推荐)</span></span><br><span class="line"><span class="comment">     *1) 复制对象的所有基本数据类型的成员变量值</span></span><br><span class="line"><span class="comment">     * 2) 为所有引用数据类型的成员变量申请存储空间，并复制每个引用数据类型成员变</span></span><br><span class="line"><span class="comment">     * 量所引用的对象，直到该对象可达的所有对象。也就是说，对象进行深拷贝要对</span></span><br><span class="line"><span class="comment">     * 整个对象进行拷贝</span></span><br><span class="line"><span class="comment">     * 3) 深拷贝实现方式1：重写clone方法来实现深拷贝</span></span><br><span class="line"><span class="comment">     * 4) 深拷贝实现方式2：通过对象序列化实现深拷贝(推荐)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">deepClone</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建流对象</span></span><br><span class="line">        ByteArrayOutputStream bos = <span class="keyword">null</span>;</span><br><span class="line">        ObjectOutputStream oos = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        ByteArrayInputStream bis = <span class="keyword">null</span>;</span><br><span class="line">        ObjectInputStream ois = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//序列化</span></span><br><span class="line">            bos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            oos = <span class="keyword">new</span> ObjectOutputStream(bos);</span><br><span class="line">            oos.writeObject(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//反序列化</span></span><br><span class="line">            bis = <span class="keyword">new</span> ByteArrayInputStream(bos.toByteArray());  <span class="comment">//当前这个对象以对象流的方式输出</span></span><br><span class="line">            ois = <span class="keyword">new</span> ObjectInputStream(bis);</span><br><span class="line">            Sheep copyObj = (Sheep) ois.readObject();</span><br><span class="line">            <span class="keyword">return</span> copyObj;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (ois != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    ois.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (bis != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    bis.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (oos != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    oos.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (bos != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    bos.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Friend</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Friend</span><span class="params">(String name, <span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Friend&#123;"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.clone();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a><strong>三、总结</strong></h1><p>原型模式的注意事项和细节：</p>
+<p>1) 创建新的对象比较复杂时，可以利用原型模式简化对象的创建过程，同时也能够提高效率；<br>2) 不用重新初始化对象，而是动态地获得对象运行时的状态；<br>3) 如果原始对象发生变化(增加或者减少属性)，其它克隆对象的也会发生相应的变化，无需修改代码；<br>4) 在实现深克隆的时候可能需要比较复杂的代码；<br>5) 缺点：需要为每一个类配备一个克隆方法，这对全新的类来说不是很难，但对已有的类进行改造时，需要修改其源代码，违背了ocp原则，这点请同学们注意。</p>
+<h1 id="四、延伸"><a href="#四、延伸" class="headerlink" title="四、延伸"></a><strong>四、延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/design-pattern/prototype-pattern.html" target="_blank" rel="noopener">原型模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/50ea47e58596" target="_blank" rel="noopener">Java设计模式（四）之原型模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av57936239" target="_blank" rel="noopener">尚硅谷Java设计模式，韩顺平图解java设计模式</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span> Article Title:</span><a  href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></p>
+        <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
+        <p><span>  Release Time:</span>2020-03-10 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-10 22:44:59</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/" title="Design Patterns(三) Prototype">https://mafuning.github.io/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/</a>
+        </p>
+        <p>
+            <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Design Patterns(二) Factory</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Content</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、原型模式"><span class="toc-number">2.</span> <span class="toc-text">二、原型模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、总结"><span class="toc-number">3.</span> <span class="toc-text">三、总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、延伸"><span class="toc-number">4.</span> <span class="toc-text">四、延伸</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="hide"  title="click hide content or display content">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "hide";
+    var valueShow = "dispaly";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
+        
+        <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/" title="Next: Design Patterns(二) Factory">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Funing Ma
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://mafuning.github.io/" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
