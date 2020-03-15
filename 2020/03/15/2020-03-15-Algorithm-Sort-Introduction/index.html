@@ -7,18 +7,20 @@
   
   
   
-  <title>Git Handbook | Funing Ma&#39;s Blog</title>
+  <title>Algorithm Sort Introduction | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What’s a version control system?">
-<meta name="keywords" content="Git,DVCS">
+  <meta name="description" content="Sorting refers to arranging data in a particular format. Sorting algorithm specifies the way to arrange data in a particular order. Most common orders are in numerical or lexicographical order.">
+<meta name="keywords" content="algorithm,Sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Handbook">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;2019-11-18-Git-Handbook&#x2F;index.html">
+<meta property="og:title" content="Algorithm Sort Introduction">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;15&#x2F;2020-03-15-Algorithm-Sort-Introduction&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="What’s a version control system?">
+<meta property="og:description" content="Sorting refers to arranging data in a particular format. Sorting algorithm specifies the way to arrange data in a particular order. Most common orders are in numerical or lexicographical order.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-24T05:14:24.012Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;15&#x2F;2020-03-15-Algorithm-Sort-Introduction&#x2F;algorithm_sort_introduction.png">
+<meta property="og:updated_time" content="2020-03-15T14:13:46.064Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;15&#x2F;2020-03-15-Algorithm-Sort-Introduction&#x2F;algorithm_sort_introduction.png">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -229,11 +231,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2019-11-18-Git-Handbook" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-15-Algorithm-Sort-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/11/18/2019-11-18-Git-Handbook/" class="article-date">
-      <time datetime="2019-11-18T10:18:18.000Z" itemprop="datePublished">2019-11-18</time>
+      <a  href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/" class="article-date">
+      <time datetime="2020-03-15T10:18:18.000Z" itemprop="datePublished">2020-03-15</time>
 </a>
 
     </div>
@@ -247,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Git Handbook
+      Algorithm Sort Introduction
     </h1>
   
 
@@ -257,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/database/">database</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DVCS/" rel="tag">DVCS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -273,94 +275,30 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>What’s a version control system?</p>
+        <p>Sorting refers to arranging data in a particular format. Sorting algorithm specifies the way to arrange data in a particular order. Most common orders are in numerical or lexicographical order.</p>
 <a id="more"></a>
 
-<p>A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As the project evolves, teams can run tests, fix bugs, and contribute new code with the confidence that any version can be recovered at any time. Developers can review project history to find out:</p>
-<pre><code>Which changes were made?
-Who made the changes?
-When were the changes made?
-Why were changes needed?</code></pre><p>What’s a distributed version control system?</p>
-<p>Git is an example of a distributed version control system (DVCS) commonly used for open source and commercial software development. DVCSs allow full access to every file, branch, and iteration of a project, and allows every user access to a full and self-contained history of all changes. Unlike once popular centralized version control systems, DVCSs like Git don’t need a constant connection to a central repository. Developers can work anywhere and collaborate asynchronously from any time zone.</p>
-<p>Without version control, team members are subject to redundant tasks, slower timelines, and multiple copies of a single project. To eliminate unnecessary work, Git and other VCSs give each contributor a unified and consistent view of a project, surfacing work that’s already in progress. Seeing a transparent history of changes, who made them, and how they contribute to the development of a project helps team members stay aligned while working independently.<br>Why Git?</p>
-<p>According to the latest Stack Overflow developer survey, more than 70 percent of developers use Git, making it the most-used VCS in the world. Git is commonly used for both open source and commercial software development, with significant benefits for individuals, teams and businesses.</p>
-<pre><code>Git lets developers see the entire timeline of their changes, decisions, and progression of any project in one place. From the moment they access the history of a project, the developer has all the context they need to understand it and start contributing.
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;排序是计算机内经常进行的一种操作，其目的是将一组“无序”的记录序列调整为“有序”的记录序列。分内部排序和外部排序，若整个排序过程不需要访问外存便能完成，则称此类排序问题为内部排序。反之，若参加排序的记录数量很大，整个序列的排序过程不可能在内存中完成，则称此类排序问题为外部排序。内部排序的过程是一个逐步扩大记录的有序序列长度的过程。</p>
+<h1 id="排序介绍"><a href="#排序介绍" class="headerlink" title="排序介绍"></a><strong>排序介绍</strong></h1><p>排序也称排序算法(Sort Algorithm)，排序是将一组数据，依指定的顺序进行排列的过程。</p>
+<p>排序的分类：</p>
+<p>1) 内部排序:<br>指将需要处理的所有数据都加载到内部存储器中进行排序。<br>2) 外部排序法：<br>数据量过大，无法全部加载到内存中，需要借助外部存储进行排序。<br>3) 常见的排序算法分类(见下图):。</p>
+<p>排序算法分类：</p>
+<img src="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/algorithm_sort_introduction.png" class title="introduction">
 
-Developers work in every time zone. With a DVCS like Git, collaboration can happen any time while maintaining source code integrity. Using branches, developers can safely propose changes to production code.
+<br>
 
-Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.</code></pre><p>What’s a repository?</p>
-<p>A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file’s revision history. The file history appears as snapshots in time called commits, and the commits exist as a linked-list relationship, and can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who owns a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a git repository also allows for: interaction with the history, cloning, creating branches, committing, merging, comparing changes across versions of code, and more.</p>
-<p>Working in repositories keeps development projects organized and protected. Developers are encouraged to fix bugs, or create fresh features, without fear of derailing mainline development efforts. Git facilitates this through the use of topic branches: lightweight pointers to commits in history that can be easily created and deprecated when no longer needed.</p>
-<p>Through platforms like GitHub, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.</p>
-<p>Basic Git commands</p>
-<p>To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like GitHub Desktop or Git Kraken. Here are some common commands for using Git:</p>
-<pre><code>git init initializes a brand new Git repository and begins tracking an existing directory. It adds a hidden subfolder within the existing directory that houses the internal data structure required for version control.
 
-git clone creates a local copy of a project that already exists remotely. The clone includes all the project’s files, history, and branches.
 
-git add stages a change. Git tracks changes to a developer’s codebase, but it’s necessary to stage and take a snapshot of the changes to include them in the project’s history. This command performs staging, the first part of that two-step process. Any changes that are staged will become a part of the next snapshot and a part of the project’s history. Staging and committing separately gives developers complete control over the history of their project without changing how they code and work.
-
-git commit saves the snapshot to the project history and completes the change-tracking process. In short, a commit functions like taking a photo. Anything that’s been staged with git add will become a part of the snapshot with git commit.
-
-git status shows the status of changes as untracked, modified, or staged.
-
-git branch shows the branches being worked on locally.
-
-git merge merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge when they want to combine changes from a feature branch into the master branch for deployment.
-
-git pull updates the local line of development with updates from its remote counterpart. Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
-
-git push updates the remote repository with any commits made locally to a branch.</code></pre><p>Learn more from a full reference guide to Git commands.<br>Explore more Git commands</p>
-<p>For a detailed look at Git practices, the videos below show how to get the most out of some Git commands.</p>
-<pre><code>Working locally
-git status
-Two-step commits
-git pull and git push</code></pre><p>How GitHub fits in</p>
-<p>GitHub is a Git hosting repository that provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the GitHub Marketplace. With collaboration layers like the GitHub flow, a community of 15 million developers, and an ecosystem with hundreds of integrations, GitHub changes the way software is built.<br>How GitHub works</p>
-<p>GitHub builds collaboration directly into the development process. Work is organized into repositories, where developers can outline requirements or direction and set expectations for team members. Then, using the GitHub flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page.<br>The GitHub flow</p>
-<p>The GitHub flow is a lightweight, branch-based workflow built around core Git commands used by teams around the globe—including ours.</p>
-<p>The GitHub flow has six steps, each with distinct benefits when implemented:</p>
-<pre><code>Create a branch: Topic branches created from the canonical deployment branch (usually master) allow teams to contribute to many parallel efforts. Short-lived topic branches, in particular, keep teams focused and results in quick ships.
-Add commits: Snapshots of development efforts within a branch create safe, revertible points in the project’s history.
-Open a pull request: Pull requests publicize a project’s ongoing efforts and set the tone for a transparent development process.
-Discuss and review code: Teams participate in code reviews by commenting, testing, and reviewing open pull requests. Code review is at the core of an open and participatory culture.
-Merge: Upon clicking merge, GitHub automatically performs the equivalent of a local ‘git merge’ operation. GitHub also keeps the entire branch development history on the merged pull request.
-Deploy: Teams can choose the best release cycles or incorporate continuous integration tools and operate with the assurance that code on the deployment branch has gone through a robust workflow.</code></pre><p>Learn more about the GitHub flow</p>
-<p>Developers can find more information about the GitHub flow in the resources provided below.</p>
-<pre><code>Interactive guide
-GitHub Flow video</code></pre><p>GitHub and the command line</p>
-<p>For developers new to the command line, the GitHub Training team has put together a series of tutorials on Git commands to guide the way. Sometimes, a series of commands can paint a picture of how to use Git:<br>Example: Contribute to an existing repository</p>
-<p># download a repository on GitHub.com to our machine<br>git clone <a href="https://github.com/me/repo.git" target="_blank" rel="noopener">https://github.com/me/repo.git</a></p>
-<p># change into the <code>repo</code> directory<br>cd repo</p>
-<p># create a new branch to store any new changes<br>git branch my-branch</p>
-<p># switch to that branch (line of development)<br>git checkout my-branch</p>
-<p># make changes, for example, edit <code>file1.md</code> and <code>file2.md</code> using the text editor</p>
-<p># stage the changed files<br>git add file1.md file2.md</p>
-<p># take a snapshot of the staging area (anything that’s been added)<br>git commit -m “my snapshot”</p>
-<p># push changes to github<br>git push –set-upstream origin my-branch</p>
-<p>Example: Start a new repository and publish it to GitHub</p>
-<p>First, you will need to create a new repository on GitHub. You can learn how to create a new repository in our Hello World guide. Do not initialize the repository with a README, .gitignore or License. This empty repository will await your code.</p>
-<p># create a new directory, and initialize it with git-specific functions<br>git init my-repo</p>
-<p># change into the <code>my-repo</code> directory<br>cd my-repo</p>
-<p># create the first file in the project<br>touch README.md</p>
-<p># git isn’t aware of the file, stage it<br>git add README.md</p>
-<p># take a snapshot of the staging area<br>git commit -m “add README to initial commit”</p>
-<p># provide the path for the repository you created on github<br>git remote add origin <a href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git" target="_blank" rel="noopener">https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git</a></p>
-<p># push changes to github<br>git push –set-upstream origin master</p>
-<p>Example: contribute to an existing branch on GitHub</p>
-<p># assumption: a project called <code>repo</code> already exists on the machine, and a new branch has been pushed to GitHub.com since the last time changes were made locally</p>
-<p># change into the <code>repo</code> directory<br>cd repo</p>
-<p># update all remote tracking branches, and the currently checked out branch<br>git pull</p>
-<p># change into the existing branch called <code>feature-a</code><br>git checkout feature-a</p>
-<p># make changes, for example, edit <code>file1.md</code> using the text editor</p>
-<p># stage the changed file<br>git add file1.md</p>
-<p># take a snapshot of the staging area<br>git commit -m “edit file1”</p>
-<p># push changes to github<br>git push</p>
-<p>Models for collaborative development</p>
-<p>There are two primary ways people collaborate on GitHub:</p>
-<pre><code>Shared repository
-Fork and pull</code></pre><p>With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches and Marketplace, helps teams progress quickly when they adopt GitHub.</p>
-<p>For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under an developer’s personal account. Every developer has full control of their fork and is free to implement a fix or new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they’re merged. See the Forking Projects Guide for more information.</p>
+<h1 id="算法的时间复杂度"><a href="#算法的时间复杂度" class="headerlink" title="算法的时间复杂度"></a><strong>算法的时间复杂度</strong></h1><p>度量一个程序(算法)执行时间的两种方法：</p>
+<p>1)事后统计的方法这种方法可行, 但是有两个问题：一是要想对设计的算法的运行性能进行评测，需要实际运行该程序；二是所得时间的统计量依赖于计算机的硬件、软件等环境因素, 这种方式，要在同一台计算机的相同状态下运行，才能比较那个算法速度更快;</p>
+<p>2)事前估算的方法通过分析某个算法的时间复杂度来判断哪个算法更优。</p>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>1)一般情况下，算法中的基本操作语句的重复执行次数是问题规模n的某个函数，用T(n)表示，若有某个辅助函数f(n)，使得当n趋近于无穷大时，T(n) / f(n) 的极限值为不等于零的常数，则称f(n)是T(n)的同数量级函数。记作 T(n)=Ｏ( f(n) )，称Ｏ( f(n) )  为算法的渐进时间复杂度，简称时间复杂度。</p>
+<p>2)T(n) 不同，但时间复杂度可能相同。 如：T(n)=n²+7n+6 与 T(n)=3n²+2n+2 它们的T(n) 不同，但时间复杂度相同，都为O(n²)。</p>
+<p>3)计算时间复杂度的方法：<br>用常数1代替运行时间中的所有加法常数  T(n)=n²+7n+6  =&gt; T(n)=n²+7n+1<br>修改后的运行次数函数中，只保留最高阶项  T(n)=n²+7n+1 =&gt; T(n) = n²<br>去除最高阶项的系数 T(n) = n² =&gt; T(n) = n² =&gt; O(n²)</p>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>1)类似于时间复杂度的讨论，一个算法的空间复杂度(Space Complexity)定义为该算法所耗费的存储空间，它也是问题规模n的函数；</p>
+<p>2)空间复杂度(Space Complexity)是对一个算法在运行过程中临时占用存储空间大小的量度。有的算法需要占用的临时工作单元数与解决问题的规模n有关，它随着n的增大而增大，当n较大时，将占用较多的存储单元，例如快速排序和归并排序算法就属于这种情况；</p>
+<p>3)在做算法分析时，主要讨论的是时间复杂度。从用户使用体验上看，更看重的程序执行的速度。一些缓存产品(redis, memcache)和算法(基数排序)本质就是用空间换时间。</p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/w3cnote/sort-algorithm-summary.html" target="_blank" rel="noopener">排序算法总结</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/weixin_41190227/article/details/86600821" target="_blank" rel="noopener">超详细十大经典排序算法总结</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/7fbf8671c742" target="_blank" rel="noopener">Data Structure_Sort Algorithm</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/data_structures_algorithms/sorting_algorithms.htm1" target="_blank" rel="noopener">Data Structure - Sorting Techniques</a></p>
 
       
     </div>
@@ -369,12 +307,12 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/">Algorithm Sort Introduction</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2019-11-18 18:18:18</p>
-        <p><span>   Last Update:</span>2019-11-24 13:14:24</p>
+        <p><span>  Release Time:</span>2020-03-15 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-15 22:13:46</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2019/11/18/2019-11-18-Git-Handbook/" title="Git Handbook">https://mafuning.github.io/2019/11/18/2019-11-18-Git-Handbook/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/" title="Algorithm Sort Introduction">https://mafuning.github.io/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -385,18 +323,9 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
 
 <nav id="article-nav">
   
-    <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Mastering Markdown
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GitHub Pages</div>
+    <a  href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E5%85%AB%E3%80%91-Composite/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Design Patterns(八) Composite</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -408,7 +337,7 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#排序介绍"><span class="toc-number">2.</span> <span class="toc-text">排序介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法的时间复杂度"><span class="toc-number">3.</span> <span class="toc-text">算法的时间复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间复杂度"><span class="toc-number">3.1.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间复杂度"><span class="toc-number">3.2.</span> <span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">4.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -457,13 +386,11 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" title="Previous: Mastering Markdown">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" title="Next: GitHub Pages">
+            <a  href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E5%85%AB%E3%80%91-Composite/" title="Next: Design Patterns(八) Composite">
                 <i class="fa fa-angle-right"></i>
             </a>
         
