@@ -7,18 +7,21 @@
   
   
   
-  <title>Git Handbook | Funing Ma&#39;s Blog</title>
+  <title>Algorithm Shell Sort | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What’s a version control system?">
-<meta name="keywords" content="Git,DVCS">
+  <meta name="description" content="Shell Sort is mainly a variation of Insertion Sort. In insertion sort, we move elements only one position ahead. When an element has to be moved far ahead, many movements are involved. The idea of she">
+<meta name="keywords" content="algorithm,Sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Handbook">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2019&#x2F;11&#x2F;18&#x2F;2019-11-18-Git-Handbook&#x2F;index.html">
+<meta property="og:title" content="Algorithm Shell Sort">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Algorithm-Shell-Sort&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="What’s a version control system?">
+<meta property="og:description" content="Shell Sort is mainly a variation of Insertion Sort. In insertion sort, we move elements only one position ahead. When an element has to be moved far ahead, many movements are involved. The idea of she">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-24T05:14:24.012Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Algorithm-Shell-Sort&#x2F;shell_sort_info.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Algorithm-Shell-Sort&#x2F;shell_sort.gif">
+<meta property="og:updated_time" content="2020-03-17T15:56:55.714Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Algorithm-Shell-Sort&#x2F;shell_sort_info.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -229,11 +232,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2019-11-18-Git-Handbook" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-18-Algorithm-Shell-Sort" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/11/18/2019-11-18-Git-Handbook/" class="article-date">
-      <time datetime="2019-11-18T10:18:18.000Z" itemprop="datePublished">2019-11-18</time>
+      <a  href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/" class="article-date">
+      <time datetime="2020-03-18T10:18:18.000Z" itemprop="datePublished">2020-03-18</time>
 </a>
 
     </div>
@@ -247,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Git Handbook
+      Algorithm Shell Sort
     </h1>
   
 
@@ -257,13 +260,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/database/">database</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DVCS/" rel="tag">DVCS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -273,94 +276,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>What’s a version control system?</p>
+        <p>Shell Sort is mainly a variation of Insertion Sort. In insertion sort, we move elements only one position ahead. When an element has to be moved far ahead, many movements are involved. The idea of shell Sort is to allow exchange of far items. In shell Sort, we make the array h-sorted for a large value of h. We keep reducing the value of h until it becomes 1. An array is said to be h-sorted if all sublists of every h’th element is sorted</p>
 <a id="more"></a>
 
-<p>A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As the project evolves, teams can run tests, fix bugs, and contribute new code with the confidence that any version can be recovered at any time. Developers can review project history to find out:</p>
-<pre><code>Which changes were made?
-Who made the changes?
-When were the changes made?
-Why were changes needed?</code></pre><p>What’s a distributed version control system?</p>
-<p>Git is an example of a distributed version control system (DVCS) commonly used for open source and commercial software development. DVCSs allow full access to every file, branch, and iteration of a project, and allows every user access to a full and self-contained history of all changes. Unlike once popular centralized version control systems, DVCSs like Git don’t need a constant connection to a central repository. Developers can work anywhere and collaborate asynchronously from any time zone.</p>
-<p>Without version control, team members are subject to redundant tasks, slower timelines, and multiple copies of a single project. To eliminate unnecessary work, Git and other VCSs give each contributor a unified and consistent view of a project, surfacing work that’s already in progress. Seeing a transparent history of changes, who made them, and how they contribute to the development of a project helps team members stay aligned while working independently.<br>Why Git?</p>
-<p>According to the latest Stack Overflow developer survey, more than 70 percent of developers use Git, making it the most-used VCS in the world. Git is commonly used for both open source and commercial software development, with significant benefits for individuals, teams and businesses.</p>
-<pre><code>Git lets developers see the entire timeline of their changes, decisions, and progression of any project in one place. From the moment they access the history of a project, the developer has all the context they need to understand it and start contributing.
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;希尔排序(Shell’s Sort)是插入排序的一种又称“缩小增量排序”（Diminishing Increment Sort），是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。</p>
+<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a><strong>希尔排序</strong></h1><p>希尔排序思想：</p>
+<p>希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止</p>
+<p>希尔排序解析：</p>
+<img src="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/shell_sort_info.jpeg" class title="introduction">
 
-Developers work in every time zone. With a DVCS like Git, collaboration can happen any time while maintaining source code integrity. Using branches, developers can safely propose changes to production code.
+<br>
 
-Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.</code></pre><p>What’s a repository?</p>
-<p>A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file’s revision history. The file history appears as snapshots in time called commits, and the commits exist as a linked-list relationship, and can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who owns a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a git repository also allows for: interaction with the history, cloning, creating branches, committing, merging, comparing changes across versions of code, and more.</p>
-<p>Working in repositories keeps development projects organized and protected. Developers are encouraged to fix bugs, or create fresh features, without fear of derailing mainline development efforts. Git facilitates this through the use of topic branches: lightweight pointers to commits in history that can be easily created and deprecated when no longer needed.</p>
-<p>Through platforms like GitHub, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.</p>
-<p>Basic Git commands</p>
-<p>To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like GitHub Desktop or Git Kraken. Here are some common commands for using Git:</p>
-<pre><code>git init initializes a brand new Git repository and begins tracking an existing directory. It adds a hidden subfolder within the existing directory that houses the internal data structure required for version control.
+<p>希尔排序动图：</p>
+<img src="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/shell_sort.gif" class title="introduction">
 
-git clone creates a local copy of a project that already exists remotely. The clone includes all the project’s files, history, and branches.
+<br>
 
-git add stages a change. Git tracks changes to a developer’s codebase, but it’s necessary to stage and take a snapshot of the changes to include them in the project’s history. This command performs staging, the first part of that two-step process. Any changes that are staged will become a part of the next snapshot and a part of the project’s history. Staging and committing separately gives developers complete control over the history of their project without changing how they code and work.
+<p>希尔排序代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-17 23:10</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 希尔排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShellSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// int[] arr = &#123;8, 9, 1, 7, 2, 3, 5, 4, 6, 0&#125;;</span></span><br><span class="line">        <span class="comment">// System.out.println("原始的数组:" + Arrays.toString(arr));</span></span><br><span class="line">        <span class="comment">// shellSortGression(arr);</span></span><br><span class="line">        <span class="comment">// System.out.println("排序后数组:" + Arrays.toString(arr));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">80000</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">80000</span>; i++) &#123;</span><br><span class="line">            arr[i] = (<span class="keyword">int</span>) (Math.random() * <span class="number">80000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        <span class="comment">//shellSortExchange(arr);// 交换法：7817 毫秒</span></span><br><span class="line">        shellSortGression(arr); <span class="comment">// 移位法：23 毫秒</span></span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"80000个数字排序所用时间:"</span> + (end - start));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 希尔排序移位法</span></span><br><span class="line"><span class="comment">     * 效率低</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 需排序数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSortGression</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> gap = arr.length / <span class="number">2</span>; gap &gt; <span class="number">0</span>; gap /= <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">//从第gap个元素，逐个对其所在的组进行直接插入排序</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = gap; i &lt; arr.length; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> j = i;</span><br><span class="line">                <span class="keyword">int</span> temp = arr[j];</span><br><span class="line">                <span class="keyword">if</span> (arr[j] &lt; arr[j - gap]) &#123;</span><br><span class="line">                    <span class="keyword">while</span> (j - gap &gt;= <span class="number">0</span> &amp;&amp; temp &lt; arr[j - gap]) &#123;</span><br><span class="line">                        <span class="comment">//移位</span></span><br><span class="line">                        arr[j] = arr[j - gap];</span><br><span class="line">                        j -= gap;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//当退出while后，就给temp找到插入位置</span></span><br><span class="line">                    arr[j] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 希尔排序交换法</span></span><br><span class="line"><span class="comment">     * 效率低</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 需排序数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSortExchange</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// int total = 0;</span></span><br><span class="line">        <span class="comment">//gap 为步长</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> gap = arr.length / <span class="number">2</span>; gap &gt; <span class="number">0</span>; gap /= <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = gap; i &lt; arr.length; i++) &#123;</span><br><span class="line">                <span class="comment">//如果当前原始大于下标加上步长的那个原始则进行交换</span></span><br><span class="line">                <span class="comment">//交换法效率低</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = i - gap; j &gt;= <span class="number">0</span>; j -= gap) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (arr[j] &gt; arr[j + gap]) &#123;</span><br><span class="line">                        temp = arr[j];</span><br><span class="line">                        arr[j] = arr[j + gap];</span><br><span class="line">                        arr[j + gap] = temp;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//System.out.println("第" + (++total) + "次排序后的数组:");</span></span><br><span class="line">            <span class="comment">//System.out.println(Arrays.toString(arr));</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-git commit saves the snapshot to the project history and completes the change-tracking process. In short, a commit functions like taking a photo. Anything that’s been staged with git add will become a part of the snapshot with git commit.
 
-git status shows the status of changes as untracked, modified, or staged.
-
-git branch shows the branches being worked on locally.
-
-git merge merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge when they want to combine changes from a feature branch into the master branch for deployment.
-
-git pull updates the local line of development with updates from its remote counterpart. Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
-
-git push updates the remote repository with any commits made locally to a branch.</code></pre><p>Learn more from a full reference guide to Git commands.<br>Explore more Git commands</p>
-<p>For a detailed look at Git practices, the videos below show how to get the most out of some Git commands.</p>
-<pre><code>Working locally
-git status
-Two-step commits
-git pull and git push</code></pre><p>How GitHub fits in</p>
-<p>GitHub is a Git hosting repository that provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the GitHub Marketplace. With collaboration layers like the GitHub flow, a community of 15 million developers, and an ecosystem with hundreds of integrations, GitHub changes the way software is built.<br>How GitHub works</p>
-<p>GitHub builds collaboration directly into the development process. Work is organized into repositories, where developers can outline requirements or direction and set expectations for team members. Then, using the GitHub flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page.<br>The GitHub flow</p>
-<p>The GitHub flow is a lightweight, branch-based workflow built around core Git commands used by teams around the globe—including ours.</p>
-<p>The GitHub flow has six steps, each with distinct benefits when implemented:</p>
-<pre><code>Create a branch: Topic branches created from the canonical deployment branch (usually master) allow teams to contribute to many parallel efforts. Short-lived topic branches, in particular, keep teams focused and results in quick ships.
-Add commits: Snapshots of development efforts within a branch create safe, revertible points in the project’s history.
-Open a pull request: Pull requests publicize a project’s ongoing efforts and set the tone for a transparent development process.
-Discuss and review code: Teams participate in code reviews by commenting, testing, and reviewing open pull requests. Code review is at the core of an open and participatory culture.
-Merge: Upon clicking merge, GitHub automatically performs the equivalent of a local ‘git merge’ operation. GitHub also keeps the entire branch development history on the merged pull request.
-Deploy: Teams can choose the best release cycles or incorporate continuous integration tools and operate with the assurance that code on the deployment branch has gone through a robust workflow.</code></pre><p>Learn more about the GitHub flow</p>
-<p>Developers can find more information about the GitHub flow in the resources provided below.</p>
-<pre><code>Interactive guide
-GitHub Flow video</code></pre><p>GitHub and the command line</p>
-<p>For developers new to the command line, the GitHub Training team has put together a series of tutorials on Git commands to guide the way. Sometimes, a series of commands can paint a picture of how to use Git:<br>Example: Contribute to an existing repository</p>
-<p># download a repository on GitHub.com to our machine<br>git clone <a href="https://github.com/me/repo.git" target="_blank" rel="noopener">https://github.com/me/repo.git</a></p>
-<p># change into the <code>repo</code> directory<br>cd repo</p>
-<p># create a new branch to store any new changes<br>git branch my-branch</p>
-<p># switch to that branch (line of development)<br>git checkout my-branch</p>
-<p># make changes, for example, edit <code>file1.md</code> and <code>file2.md</code> using the text editor</p>
-<p># stage the changed files<br>git add file1.md file2.md</p>
-<p># take a snapshot of the staging area (anything that’s been added)<br>git commit -m “my snapshot”</p>
-<p># push changes to github<br>git push –set-upstream origin my-branch</p>
-<p>Example: Start a new repository and publish it to GitHub</p>
-<p>First, you will need to create a new repository on GitHub. You can learn how to create a new repository in our Hello World guide. Do not initialize the repository with a README, .gitignore or License. This empty repository will await your code.</p>
-<p># create a new directory, and initialize it with git-specific functions<br>git init my-repo</p>
-<p># change into the <code>my-repo</code> directory<br>cd my-repo</p>
-<p># create the first file in the project<br>touch README.md</p>
-<p># git isn’t aware of the file, stage it<br>git add README.md</p>
-<p># take a snapshot of the staging area<br>git commit -m “add README to initial commit”</p>
-<p># provide the path for the repository you created on github<br>git remote add origin <a href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git" target="_blank" rel="noopener">https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git</a></p>
-<p># push changes to github<br>git push –set-upstream origin master</p>
-<p>Example: contribute to an existing branch on GitHub</p>
-<p># assumption: a project called <code>repo</code> already exists on the machine, and a new branch has been pushed to GitHub.com since the last time changes were made locally</p>
-<p># change into the <code>repo</code> directory<br>cd repo</p>
-<p># update all remote tracking branches, and the currently checked out branch<br>git pull</p>
-<p># change into the existing branch called <code>feature-a</code><br>git checkout feature-a</p>
-<p># make changes, for example, edit <code>file1.md</code> using the text editor</p>
-<p># stage the changed file<br>git add file1.md</p>
-<p># take a snapshot of the staging area<br>git commit -m “edit file1”</p>
-<p># push changes to github<br>git push</p>
-<p>Models for collaborative development</p>
-<p>There are two primary ways people collaborate on GitHub:</p>
-<pre><code>Shared repository
-Fork and pull</code></pre><p>With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches and Marketplace, helps teams progress quickly when they adopt GitHub.</p>
-<p>For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under an developer’s personal account. Every developer has full control of their fork and is free to implement a fix or new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they’re merged. See the Forking Projects Guide for more information.</p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.geeksforgeeks.org/shellsort/" target="_blank" rel="noopener">ShellSort</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/a49e9c1998d1" target="_blank" rel="noopener">希尔排序 shell sort</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/weixin_37818081/article/details/79202115" target="_blank" rel="noopener">理解希尔排序的排序过程</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/40dcc3b83ddc" target="_blank" rel="noopener">五分钟学会一个高难度算法：希尔排序</a></p>
 
       
     </div>
@@ -369,12 +305,12 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/">Algorithm Shell Sort</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2019-11-18 18:18:18</p>
-        <p><span>   Last Update:</span>2019-11-24 13:14:24</p>
+        <p><span>  Release Time:</span>2020-03-18 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-17 23:56:55</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2019/11/18/2019-11-18-Git-Handbook/" title="Git Handbook">https://mafuning.github.io/2019/11/18/2019-11-18-Git-Handbook/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/" title="Algorithm Shell Sort">https://mafuning.github.io/2020/03/18/2020-03-18-Algorithm-Shell-Sort/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -385,18 +321,9 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
 
 <nav id="article-nav">
   
-    <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Mastering Markdown
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GitHub Pages</div>
+    <a  href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm Insertion Sort</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -408,7 +335,7 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#希尔排序"><span class="toc-number">2.</span> <span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -457,13 +384,11 @@ Fork and pull</code></pre><p>With a shared repository, individuals and teams are
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2019/11/19/2019-11-19-Mastering-Markdown/" title="Previous: Mastering Markdown">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" title="Next: GitHub Pages">
+            <a  href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/" title="Next: Algorithm Insertion Sort">
                 <i class="fa fa-angle-right"></i>
             </a>
         
