@@ -7,20 +7,21 @@
   
   
   
-  <title>Design Patterns(十) Flyweight | Funing Ma&#39;s Blog</title>
+  <title>Algorithm Insertion Sort | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Flyweight pattern is primarily used to reduce the number of objects created and to decrease memory footprint and increase performance. This type of design pattern comes under structural pattern as thi">
-<meta name="keywords" content="Design Patterns,Flyweight">
+  <meta name="description" content="Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it">
+<meta name="keywords" content="algorithm,Sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Design Patterns(十) Flyweight">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight&#x2F;index.html">
+<meta property="og:title" content="Algorithm Insertion Sort">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Insertion-Sort&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="Flyweight pattern is primarily used to reduce the number of objects created and to decrease memory footprint and increase performance. This type of design pattern comes under structural pattern as thi">
+<meta property="og:description" content="Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight&#x2F;flyweight_design_pattern_example.png">
-<meta property="og:updated_time" content="2020-03-16T12:57:41.904Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Insertion-Sort&#x2F;insertion_sort_info.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Insertion-Sort&#x2F;insertion_sort.gif">
+<meta property="og:updated_time" content="2020-03-17T14:43:56.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight&#x2F;flyweight_design_pattern_example.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Insertion-Sort&#x2F;insertion_sort_info.png">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -231,11 +232,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2020-03-16-Design-Patterns【十】-Flyweight" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-17-Algorithm-Insertion-Sort" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/" class="article-date">
-      <time datetime="2020-03-16T10:28:28.000Z" itemprop="datePublished">2020-03-16</time>
+      <a  href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/" class="article-date">
+      <time datetime="2020-03-17T10:58:18.000Z" itemprop="datePublished">2020-03-17</time>
 </a>
 
     </div>
@@ -249,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Design Patterns(十) Flyweight
+      Algorithm Insertion Sort
     </h1>
   
 
@@ -259,13 +260,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/backend/">backend</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flyweight/" rel="tag">Flyweight</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,39 +276,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Flyweight pattern is primarily used to reduce the number of objects created and to decrease memory footprint and increase performance. This type of design pattern comes under structural pattern as this pattern provides ways to decrease object count thus improving the object structure of application.</p>
+        <p>Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.</p>
 <a id="more"></a>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;享元模式（Flyweight Pattern）主要用于减少创建对象的数量，以减少内存占用和提高性能。这种类型的设计模式属于结构型模式，它提供了减少对象数量从而改善应用所需的对象结构的方式。</p>
-<h1 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a><strong>享元模式</strong></h1><p>基本介绍：</p>
-<p>1) 享元模式（Flyweight Pattern） 也叫 蝇量模式: 运用共享技术有效地支持大量细粒度的对象；<br>2) 常用于系统底层开发，解决系统的性能问题。像数据库连接池，里面都是创建好的连接对象，在这些连接对象中有我们需要的则直接拿来用，避免重新创建，如果没有我们需要的，则创建一个；<br>3) 享元模式能够解决 重复对象的内存浪费的问题，当系统中有大量相似对象，需要缓冲池时。不需总是创建新对象，可以从缓冲池里拿。这样可以降低系统内存，同时提高效率；<br>4) 享元模式 经典的应用场景就是池技术了，String常量池、数据库连接池、缓冲池等等都是享元模式的应用，享元模式是池技术的重要实现方式。</p>
-<p>内部状态和外部状态:</p>
-<p>比如围棋、五子棋、跳棋，它们都有大量的棋子对象，围棋和五子棋只有黑白两色，跳棋颜色多一<br>点，所以棋子颜色就是棋子的内部状态；而各个棋子之间的差别就是位置的不同，当我们落子后，<br>落子颜色是定的，但位置是变化的，所以棋子坐标就是棋子的外部状态。</p>
-<p>1) 享元模式提出了两个要求：细粒度和共享对象。这里就涉及到内部状态和外部状态了，即将对象的信息分为两个部分： 内部状态和 外部状态;<br>2) 内部状态指对象共享出来的信息，存储在享元对象内部且不会随环境的改变而改变;<br>3) 外部状态指对象得以依赖的一个标记，是随环境改变而改变的、不可共享的状态;<br>4) 举个例子：围棋理论上有361个空位可以放棋子，每盘棋都有可能有两三百个棋子对象产生，因为内存空间有限，一台服务器很难支持更多的玩家玩围棋游戏，如果用享元模式来处理棋子，那么棋子对象就可以减少到只有两个实例，这样就很好的解决了对象的开销问题。</p>
-<p><strong>享元模式-UML图：</strong></p>
-
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;插入排序（Insertion sort）是一种简单直观且稳定的排序算法。如果有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法,算法适用于少量数据的排序，时间复杂度O(n^2)。是稳定的排序方法。插入算法把要排序的数组分成两部分：第一部分包含了这个数组的所有元素，但将最后一个元素除外（让数组多一个空间才有插入的位置），而第二部分就只包含这一个元素（即待插入元素）。在第一部分排序完成后，再将这个最后元素插入到已排好序的第一部分中。</p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a><strong>插入排序</strong></h1><p>插入排序思想：</p>
+<p>插入排序（InsertionSorting）的基本思想是：把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，把它的排序码依次与有序表元素的排序码进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。</p>
+<p>插入排序解析：</p>
+<img src="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/insertion_sort_info.png" class title="introduction">
 
 <br>
 
-<br>
+<p>插入排序动图：</p>
+<img src="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/insertion_sort.gif" class title="introduction">
 
 <br>
 
-<br>
+<p>插入排序代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-17 22:02</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 插入排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InsertionSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// int[] arr = &#123;101, 34, 119, 1&#125;;</span></span><br><span class="line">        <span class="comment">// System.out.println("原始的数组:" + Arrays.toString(arr));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">80000</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">80000</span>; i++) &#123;</span><br><span class="line">            arr[i] = (<span class="keyword">int</span>) (Math.random() * <span class="number">80000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        insertionSort(arr); <span class="comment">//608 毫秒</span></span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"80000个数字排序所用时间:"</span> + (end - start));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 插入排序方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 需排序数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> insertVal = arr[i];</span><br><span class="line">            <span class="keyword">int</span> insertIndex = i - <span class="number">1</span>; <span class="comment">//即arr[i+1] 前的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//insertIndex&gt;=0 保证下标不越界</span></span><br><span class="line">            <span class="comment">//insertVal&lt;arr[insertIndex] 说明前面有序数组还有更小的值</span></span><br><span class="line">            <span class="keyword">while</span> (insertIndex &gt;= <span class="number">0</span> &amp;&amp; insertVal &lt; arr[insertIndex]) &#123;</span><br><span class="line">                arr[insertIndex + <span class="number">1</span>] = arr[insertIndex];</span><br><span class="line">                insertIndex--;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//当退出循环时，说明位置找到</span></span><br><span class="line">            <span class="keyword">if</span> (insertIndex + <span class="number">1</span> != i) &#123; <span class="comment">//优化，不在原来位置时才交换魏则</span></span><br><span class="line">                arr[insertIndex + <span class="number">1</span>] = insertVal;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// System.out.println("第" + i + "趟排序后的数组:");</span></span><br><span class="line">            <span class="comment">// System.out.println(Arrays.toString(arr));</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>享元模式-案例图：</strong></p>
-<br>
 
-<img src="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/flyweight_design_pattern_example.png" class title="introduction">
-
-<br>
-
-<p>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-16 20:28</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 享元模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Flyweight</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        WebsiteFactory factory = <span class="keyword">new</span> WebsiteFactory();</span><br><span class="line">        WebSite webSiteNews1 = factory.getWebSiteCategory(<span class="string">"新闻"</span>);</span><br><span class="line">        webSiteNews1.use(<span class="keyword">new</span> User(<span class="string">"老王"</span>));</span><br><span class="line">        WebSite webSiteNews2 = factory.getWebSiteCategory(<span class="string">"新闻"</span>);</span><br><span class="line">        webSiteNews2.use(<span class="keyword">new</span> User(<span class="string">"小王"</span>));</span><br><span class="line">        WebSite webSiteblog1 = factory.getWebSiteCategory(<span class="string">"博客"</span>);</span><br><span class="line">        webSiteblog1.use(<span class="keyword">new</span> User(<span class="string">"老张"</span>));</span><br><span class="line">        WebSite webSiteblog2 = factory.getWebSiteCategory(<span class="string">"博客"</span>);</span><br><span class="line">        webSiteblog2.use(<span class="keyword">new</span> User(<span class="string">"小张"</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"网站的分类共="</span> + factory.getWebSiteCount());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 享元工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebsiteFactory</span> </span>&#123;</span><br><span class="line">    Map&lt;String, ConcreteWebsite&gt; pool = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据网站的类型，返回一个网站, 如果没有就创建一个网站，并放入到池中,并返回</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> WebSite <span class="title">getWebSiteCategory</span><span class="params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!pool.containsKey(type)) &#123;</span><br><span class="line">            pool.put(type, <span class="keyword">new</span> ConcreteWebsite(type));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pool.get(type);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取网站分类的总数 (池中有多少个网站类型)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWebSiteCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pool.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 抽象的享元角色</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSite</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">use</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 具体的享元角色</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteWebsite</span> <span class="keyword">extends</span> <span class="title">WebSite</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//共享的部分，内部状态</span></span><br><span class="line">    <span class="keyword">private</span> String type; <span class="comment">//网站发布的形式(类型)</span></span><br><span class="line"></span><br><span class="line">    ConcreteWebsite(String type) &#123;</span><br><span class="line">        <span class="keyword">this</span>.type = type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">use</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"网站的发布形式为:"</span> + type + <span class="string">" 在使用中 .. 使用者是"</span> + user.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    User(String name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>享元模式的注意事项和细节:</p>
-<p>1) 在享元模式这样理解，“享”就表示共享，“元”表示对象；<br>2) 系统中有大量对象，这些对象消耗大量内存，并且对象的状态大部分可以外部化时，我们就可以考虑选用享元模式；<br>3) 用唯一标识码判断，如果在内存中有，则返回这个唯一标识码所标识的对象，用HashMap/HashTable存储；<br>4) 享元模式大大减少了对象的创建，降低了程序内存的占用，提高效率；<br>5) 享元模式提高了系统的复杂度。需要分离出内部状态和外部状态，而外部状态具有固化特性，不应该随着内部状态的改变而改变，这是我们 使用享元模式需要注意的地方；<br>6) 使用享元模式时，注意划分内部状态和外部状态，并且需要有一个工厂类加以控制；<br>7) 享元模式经典的应用场景是需要缓冲池的场景，比如 String常量池、数据库连接池。</p>
-<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/cooldragon/article/details/52174529" target="_blank" rel="noopener">享元模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/design-pattern/flyweight-pattern.html" target="_blank" rel="noopener">享元模式-菜鸟教程</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/9fce27d77599" target="_blank" rel="noopener">享元模式（Flyweight Pattern）</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/design_pattern/flyweight_pattern.htm" target="_blank" rel="noopener">Design Patterns - Flyweight Pattern</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av57936239" target="_blank" rel="noopener">尚硅谷Java设计模式，韩顺平图解java设计模式</a></p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/jinwanchiji/article/details/79652304" target="_blank" rel="noopener">插入排序</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.geeksforgeeks.org/insertion-sort/" target="_blank" rel="noopener">Insertion Sort</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/4ccf86b4f827" target="_blank" rel="noopener">插入排序（Insertion Sort）</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://my.oschina.net/xiaoqiyiye/blog/2242774" target="_blank" rel="noopener">排序-插入排序(Insertion Sort)</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a></p>
 
       
     </div>
@@ -316,12 +305,12 @@
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/">Design Patterns(十) Flyweight</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/">Algorithm Insertion Sort</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2020-03-16 18:28:28</p>
-        <p><span>   Last Update:</span>2020-03-16 20:57:41</p>
+        <p><span>  Release Time:</span>2020-03-17 18:58:18</p>
+        <p><span>   Last Update:</span>2020-03-17 22:43:56</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/" title="Design Patterns(十) Flyweight">https://mafuning.github.io/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/" title="Algorithm Insertion Sort">https://mafuning.github.io/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -332,18 +321,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Algorithm Bubble Sort
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E4%B9%9D%E3%80%91-Facade/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Design Patterns(九) Facade</div>
+    <a  href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Design Patterns(十一) Proxy</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -355,7 +335,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#享元模式"><span class="toc-number">2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">4.</span> <span class="toc-text">延伸</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入排序"><span class="toc-number">2.</span> <span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -404,13 +384,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/" title="Previous: Algorithm Bubble Sort">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E4%B9%9D%E3%80%91-Facade/" title="Next: Design Patterns(九) Facade">
+            <a  href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/" title="Next: Design Patterns(十一) Proxy">
                 <i class="fa fa-angle-right"></i>
             </a>
         
