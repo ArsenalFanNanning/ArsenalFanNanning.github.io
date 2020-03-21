@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Design Patterns(二十二) Chain of Responsibility | Funing Ma&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Chain of responsibility pattern is used to achieve loose coupling in software design where a request from the client is passed to a chain of objects to process them. Later, the object in the chain wil">
+<meta name="keywords" content="Design Patterns,Chain of Responsibility">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design Patterns(二十二) Chain of Responsibility">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility&#x2F;index.html">
+<meta property="og:site_name" content="Funing Ma&#39;s Blog">
+<meta property="og:description" content="Chain of responsibility pattern is used to achieve loose coupling in software design where a request from the client is passed to a chain of objects to process them. Later, the object in the chain wil">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility&#x2F;chain_of_responsibility_uml.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility&#x2F;chain_of_responsibility_example.jpg">
+<meta property="og:updated_time" content="2020-03-21T10:53:19.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility&#x2F;chain_of_responsibility_uml.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Funing Ma</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Developer. Designer</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Links</li>
+                        
+                        
+                        <li>About</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">article</a></li>
+                        
+                            <li><a  href="/categories/backend">backend</a></li>
+                        
+                            <li><a  href="/categories/frontend">frontend</a></li>
+                        
+                            <li><a  href="/categories/database">database</a></li>
+                        
+                            <li><a  href="/categories/algorithm">algorithm</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                            
+                                <a class="fl twitter"  target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                            
+                                <a class="fl google"  target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Adapter/" style="font-size: 10px;">Adapter</a> <a href="/tags/Bridge/" style="font-size: 10px;">Bridge</a> <a href="/tags/Builder/" style="font-size: 10px;">Builder</a> <a href="/tags/Chain-of-Responsibility/" style="font-size: 10px;">Chain of Responsibility</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Composite/" style="font-size: 10px;">Composite</a> <a href="/tags/DVCS/" style="font-size: 10px;">DVCS</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/Decorator/" style="font-size: 10px;">Decorator</a> <a href="/tags/Design-Patterns/" style="font-size: 20px;">Design Patterns</a> <a href="/tags/Facade/" style="font-size: 10px;">Facade</a> <a href="/tags/Factory/" style="font-size: 10px;">Factory</a> <a href="/tags/Flyweight/" style="font-size: 10px;">Flyweight</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/LinkedList/" style="font-size: 10px;">LinkedList</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mediator/" style="font-size: 10px;">Mediator</a> <a href="/tags/Memento/" style="font-size: 10px;">Memento</a> <a href="/tags/MyBatis/" style="font-size: 12.5px;">MyBatis</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/Observer/" style="font-size: 10px;">Observer</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Principles/" style="font-size: 10px;">Principles</a> <a href="/tags/Prototype/" style="font-size: 10px;">Prototype</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-Start/" style="font-size: 10px;">Quick Start</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/Sparse-Array/" style="font-size: 10px;">Sparse Array</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/Template-Method/" style="font-size: 10px;">Template Method</a> <a href="/tags/UpdateBatch/" style="font-size: 10px;">UpdateBatch</a> <a href="/tags/Visitor/" style="font-size: 10px;">Visitor</a> <a href="/tags/Webpages/" style="font-size: 10px;">Webpages</a> <a href="/tags/algorithm/" style="font-size: 17.5px;">algorithm</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com">jianshu</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer.Designer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Home">Funing Ma</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Home">Funing Ma</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Developer. Designer</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">article</a></li>
+                
+                    <li><a href="/categories/backend">backend</a></li>
+                
+                    <li><a href="/categories/frontend">frontend</a></li>
+                
+                    <li><a href="/categories/database">database</a></li>
+                
+                    <li><a href="/categories/algorithm">algorithm</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                    
+                        <a class="google" target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2020-03-21-Design-Patterns【二十二】-Chain-of-Responsibility" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/" class="article-date">
+      <time datetime="2020-03-21T11:18:18.000Z" itemprop="datePublished">2020-03-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Design Patterns(二十二) Chain of Responsibility
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">backend</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chain-of-Responsibility/" rel="tag">Chain of Responsibility</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Chain of responsibility pattern is used to achieve loose coupling in software design where a request from the client is passed to a chain of objects to process them. Later, the object in the chain will decide themselves who will be processing the request and whether the request is required to be sent to the next object in the chain or not.</p>
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;责任链模式（Chain of Responsibility Pattern）为请求创建了一个接收者对象的链。这种模式给予请求的类型，对请求的发送者和接收者进行解耦。这种类型的设计模式属于行为型模式。</p>
+<h1 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a><strong>责任链模式</strong></h1><p>基本介绍：</p>
+<p>1) 职责链模式（Chain of Responsibility Pattern）,又叫 责任链模式，为请求创建了一个 接收者对象的 链( 简单示意图) 。这种模式对请求的发送者和接收者进行解耦；<br>2) 职责链模式通常每个接收者都包含对另一个接收者的引用。如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推；<br>3) 这种类型的设计模式属于行为型模式</p>
+<p>角色介绍：</p>
+<p>1) Handler : 抽象的处理者, 定义了一个处理请求的接口, 同时含义另外Handler；<br>2) ConcreteHandlerA , B 是具体的处理者, 处理它自己负责的请求， 可以访问它的后继者(即下一处<br>理者), 如果可以处理当前请求，则处理，否则就将该请求交个 后继者去处理，从而形成一个职责链；<br>3) Request ， 含义很多属性，表示一个请求。</p>
+<p><strong>责任链模式-UML图：</strong></p>
+<img src="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/chain_of_responsibility_uml.jpg" class title="introduction">
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<p><strong>责任链模式-实例图：</strong></p>
+<img src="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/chain_of_responsibility_example.jpg" class title="introduction">
+
+<br>
+
+
+
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-21 18:47</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 责任链模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chainofresponsibility</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 先来一个程序猿 这里给他一个三万以内的随机值表示需要申请的差旅费</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        ProgramApe ape = <span class="keyword">new</span> ProgramApe((<span class="keyword">int</span>) (Math.random() * <span class="number">30000</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 再来四个老大</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        GroupLeader leader = <span class="keyword">new</span> GroupLeader();</span><br><span class="line">        Director director = <span class="keyword">new</span> Director();</span><br><span class="line">        Manager manager = <span class="keyword">new</span> Manager();</span><br><span class="line">        Boss boss = <span class="keyword">new</span> Boss();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 处理申请</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> (ape.getExpenses() &lt;= <span class="number">1000</span>) &#123;</span><br><span class="line">            leader.handleRequest(ape);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ape.getExpenses() &lt;= <span class="number">5000</span>) &#123;</span><br><span class="line">            director.handleRequest(ape);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ape.getExpenses() &lt;= <span class="number">10000</span>) &#123;</span><br><span class="line">            manager.handleRequest(ape);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            boss.handleRequest(ape);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleResponsibility</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> request = (<span class="keyword">int</span>) (Math.random() * <span class="number">3</span>);</span><br><span class="line">        <span class="keyword">switch</span> (request) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                System.out.println(<span class="string">"SMBother handle it: "</span> + request);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                System.out.println(<span class="string">"Aige handle it: "</span> + request);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                System.out.println(<span class="string">"7Bother handle it: "</span> + request);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 程序猿类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProgramApe</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> expenses;<span class="comment">// 声明整型成员变量表示出差费用</span></span><br><span class="line">    <span class="keyword">private</span> String apply = <span class="string">"爹要点钱出差"</span>;<span class="comment">// 声明字符串型成员变量表示差旅申请</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 含参构造方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProgramApe</span><span class="params">(<span class="keyword">int</span> expenses)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.expenses = expenses;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 获取程序员具体的差旅费用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getExpenses</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> expenses;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 获取差旅费申请</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getApply</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> apply;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 小组长类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GroupLeader</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ape 具体的猿</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(ProgramApe ape)</span> </span>&#123;</span><br><span class="line">        System.out.println(ape.getApply());</span><br><span class="line">        System.out.println(<span class="string">"GroupLeader: Of course Yes!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 项目主管类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Director</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ape 具体的猿</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(ProgramApe ape)</span> </span>&#123;</span><br><span class="line">        System.out.println(ape.getApply());</span><br><span class="line">        System.out.println(<span class="string">"Director: Of course Yes!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 部门经理类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ape 具体的猿</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(ProgramApe ape)</span> </span>&#123;</span><br><span class="line">        System.out.println(ape.getApply());</span><br><span class="line">        System.out.println(<span class="string">"Manager: Of course Yes!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 老总类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Boss</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理请求</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ape 具体的猿</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(ProgramApe ape)</span> </span>&#123;</span><br><span class="line">        System.out.println(ape.getApply());</span><br><span class="line">        System.out.println(<span class="string">"Boss: Of course Yes!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>责任链模式的注意事项和细节:</p>
+<p>1) 将请求和处理分开，实现解耦，提高系统的灵活性；<br>2) 简化了对象，使对象不需要知道链的结构；<br>3) 性能会受到影响，特别是在链比较长的时候，因此需控制链中最大节点数量，一般通过在Handler中设置一个最大节点数量，在setNext()方法中判断是否已经超过阀值，超过则不允许该链建立，避免出现超长链无意识地破坏系统性能；<br>4) 调试不方便。采用了类似递归的方式，调试时逻辑可能比较复杂<br>5) 最佳应用场景：有多个对象可以处理同一个请求时，比如：多级请求、请假/加薪等审批流程、Java Web中Tomcat对Encoding的处理、拦截器。</p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/design-pattern/chain-of-responsibility-pattern.html" target="_blank" rel="noopener">责任链模式-菜鸟教程</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/9f3b701f71a9" target="_blank" rel="noopener">Java设计模式 - 责任链模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/chenliguan/article/details/71437645" target="_blank" rel="noopener">行为型设计模式-责任链模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.geeksforgeeks.org/chain-responsibility-design-pattern/" target="_blank" rel="noopener">Chain of Responsibility Design Pattern</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av57936239" target="_blank" rel="noopener">尚硅谷Java设计模式，韩顺平图解java设计模式</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span> Article Title:</span><a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/">Design Patterns(二十二) Chain of Responsibility</a></p>
+        <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
+        <p><span>  Release Time:</span>2020-03-21 19:18:18</p>
+        <p><span>   Last Update:</span>2020-03-21 18:53:19</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/" title="Design Patterns(二十二) Chain of Responsibility">https://mafuning.github.io/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/</a>
+        </p>
+        <p>
+            <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Design Patterns(二十一) Strategy</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Content</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#责任链模式"><span class="toc-number">2.</span> <span class="toc-text">责任链模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">4.</span> <span class="toc-text">延伸</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="hide"  title="click hide content or display content">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "hide";
+    var valueShow = "dispaly";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
+        
+        <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/" title="Next: Design Patterns(二十一) Strategy">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/">Design Patterns(二十二) Chain of Responsibility</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/">Design Patterns(二十一) Strategy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E3%80%91-State/">Design Patterns(二十) State</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91-Interpreter/">Design Patterns(十九) Interpreter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AB%E3%80%91-Memento/">Design Patterns(十八) Memento</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%83%E3%80%91-Mediator/">Design Patterns(十七) Mediator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AD%E3%80%91-Observer/">Design Patterns(十六) Observer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%94%E3%80%91-Iterator/">Design Patterns(十五) Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E5%9B%9B%E3%80%91-Visitor/">Design Patterns(十四) Visitor</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%89%E3%80%91-Command/">Design Patterns(十三) Command</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/">Design Patterns(十二) Template Method</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/">Algorithm Shell Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/">Algorithm Insertion Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/">Design Patterns(十一) Proxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/">Algorithm Selection Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/">Algorithm Bubble Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/">Design Patterns(十) Flyweight</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E4%B9%9D%E3%80%91-Facade/">Design Patterns(九) Facade</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/">Algorithm Sort Introduction</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E5%85%AB%E3%80%91-Composite/">Design Patterns(八) Composite</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E4%B8%83%E3%80%91-Decorator/">Design Patterns(七) Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/2020-03-13-Design-Patterns%E3%80%90%E5%85%AD%E3%80%91-Bridge/">Design Patterns(六) Bridge</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E4%BA%94%E3%80%91-Adapter/">Design Patterns(五) Adapter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E5%9B%9B%E3%80%91-Builder/">Design Patterns(四) Builder</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/2020-03-11-Data-Structure-Stack/">Data Structure Stack</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Funing Ma
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://mafuning.github.io/" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
