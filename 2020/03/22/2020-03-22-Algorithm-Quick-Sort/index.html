@@ -7,21 +7,21 @@
   
   
   
-  <title>Algorithm Selection Sort | Funing Ma&#39;s Blog</title>
+  <title>Algorithm Quick Sort | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two suba">
+  <meta name="description" content="Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller tha">
 <meta name="keywords" content="algorithm,Sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Algorithm Selection Sort">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Selection-Sort&#x2F;index.html">
+<meta property="og:title" content="Algorithm Quick Sort">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;22&#x2F;2020-03-22-Algorithm-Quick-Sort&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two suba">
+<meta property="og:description" content="Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller tha">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Selection-Sort&#x2F;selection_sort_info.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Selection-Sort&#x2F;selection_sort.gif">
-<meta property="og:updated_time" content="2020-03-16T17:06:34.829Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;22&#x2F;2020-03-22-Algorithm-Quick-Sort&#x2F;quick_sort_info.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;22&#x2F;2020-03-22-Algorithm-Quick-Sort&#x2F;quick_sort.gif">
+<meta property="og:updated_time" content="2020-03-22T04:03:34.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;17&#x2F;2020-03-17-Algorithm-Selection-Sort&#x2F;selection_sort_info.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;22&#x2F;2020-03-22-Algorithm-Quick-Sort&#x2F;quick_sort_info.png">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -232,11 +232,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2020-03-17-Algorithm-Selection-Sort" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-22-Algorithm-Quick-Sort" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/" class="article-date">
-      <time datetime="2020-03-17T10:28:18.000Z" itemprop="datePublished">2020-03-17</time>
+      <a  href="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/" class="article-date">
+      <time datetime="2020-03-22T10:18:18.000Z" itemprop="datePublished">2020-03-22</time>
 </a>
 
     </div>
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Algorithm Selection Sort
+      Algorithm Quick Sort
     </h1>
   
 
@@ -276,27 +276,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array.</p>
+        <p>Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller than the specified value, say pivot, based on which the partition is made and another array holds values greater than the pivot value.</p>
 <a id="more"></a>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;选择排序法是一种不稳定的排序算法。它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到全部待排序的数据元素排完。</p>
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a><strong>选择排序</strong></h1><p>选择排序思想：</p>
-<p>选择排序（select sorting）也是一种简单的排序方法。它的基本思想是：第一次从arr[0]到arr[n-1]中选取最小值，与arr[0]交换，第二次从arr[1]到arr[n-1]中选取最小值，与arr[1]交换，第三次从arr[2]到arr[n-1]中选取最小值，与arr[2]交换，…，第i次从arr[i-1]到arr[n-1]中选取最小值，与arr[i-1]交换，…,第n-1次从arr[n-2]到arr[n-1]中选取最小值，与arr[n-2]交换，总共通过n-1次，得到一个按排序码从小到大排列的有序序列。</p>
-<p>选择排序解析：</p>
-<img src="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/selection_sort_info.png" class title="introduction">
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;快速排序通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a><strong>快速排序</strong></h1><p>快速排序思想：</p>
+<p>1)先从数列中取出一个数作为基准数;<br>2)分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边;<br>3)再对左右区间重复第二步，直到各区间只有一个数。</p>
+<p>快速排序解析：</p>
+<img src="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/quick_sort_info.png" class title="introduction">
 
 <br>
 
-<p>选择排序动图：</p>
-<img src="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/selection_sort.gif" class title="introduction">
+<p>快速排序动图：</p>
+<img src="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/quick_sort.gif" class title="introduction">
 
 <br>
 
-<p>选择排序代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-17 0:37</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 选择排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SelectionSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//int[] arr = &#123;3, 9, -1, 10, -2&#125;;</span></span><br><span class="line">        <span class="comment">//System.out.println("原始的数组:" + Arrays.toString(arr));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">80000</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">80000</span>; i++) &#123;</span><br><span class="line">            arr[i] = (<span class="keyword">int</span>) (Math.random() * <span class="number">80000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        selectionSort(arr); <span class="comment">//2305毫秒</span></span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"80000个数字排序所用时间:"</span> + (end - start));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> min = arr[i];</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (min &gt; arr[j]) &#123;</span><br><span class="line">                    min = arr[j];</span><br><span class="line">                    minIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//优化</span></span><br><span class="line">            <span class="keyword">if</span> (minIndex != i) &#123; <span class="comment">//交换</span></span><br><span class="line">                arr[minIndex] = arr[i];</span><br><span class="line">                arr[i] = min;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//System.out.println("第" + (i + 1) + "趟排序后的数组:");</span></span><br><span class="line">            <span class="comment">//System.out.println(Arrays.toString(arr));</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>快速排序代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-22 9:44</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 快速排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// int[] arr = &#123;-9, 78, 0, 23, -567, 70&#125;;</span></span><br><span class="line">        <span class="comment">// System.out.println("原始的数组:" + Arrays.toString(arr));</span></span><br><span class="line">        <span class="comment">// quickSort(arr, 0, arr.length - 1);</span></span><br><span class="line">        <span class="comment">// System.out.println("排序后数组:" + Arrays.toString(arr));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8000000</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8000000</span>; i++) &#123;</span><br><span class="line">            arr[i] = (<span class="keyword">int</span>) (Math.random() * <span class="number">8000000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        quickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>); <span class="comment">// 8000000数据 1166 毫秒。比希尔排序快</span></span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"8000000个数字排序所用时间:"</span> + (end - start));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 快速排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr   需排序数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left  左下标</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right 右下标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> l = left; <span class="comment">//左下标</span></span><br><span class="line">        <span class="keyword">int</span> r = right; <span class="comment">// 右下标</span></span><br><span class="line">        <span class="keyword">int</span> pivot = arr[(left + right) / <span class="number">2</span>]; <span class="comment">//中轴的值</span></span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//让比pivot中轴值小的放在左边</span></span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//在pivot左边一直找，找到比pivot值大的才退出</span></span><br><span class="line">            <span class="keyword">while</span> (arr[l] &lt; pivot) &#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//在pivot右边一直找，找到比pivot值小的才退出</span></span><br><span class="line">            <span class="keyword">while</span> (arr[r] &gt; pivot) &#123;</span><br><span class="line">                r--;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//当左边的下标大于右边的下标时，说明pivot左边的值都是小于pivot; pivot右边的值都是大于pivot</span></span><br><span class="line">            <span class="keyword">if</span> (l &gt;= r) &#123;</span><br><span class="line">                <span class="keyword">break</span>; <span class="comment">//退出</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//交换</span></span><br><span class="line">            temp = arr[l];</span><br><span class="line">            arr[l] = arr[r];</span><br><span class="line">            arr[r] = temp;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果交换完后，发现arr[l] == pivot，那左边就排序完了，让右边继续排序，即r--;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[l] == pivot) &#123;</span><br><span class="line">                r--;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果交换完后，发现arr[r] == pivot，那右边就排序完了，让左边继续排序，即l++;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[r] == pivot) &#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果l==r，必须执行 l++,r--。否则出现栈溢出。</span></span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            l++;</span><br><span class="line">            r--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向左递归</span></span><br><span class="line">        <span class="keyword">if</span> (left &lt; r) &#123;</span><br><span class="line">            quickSort(arr, left, r);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向右递归</span></span><br><span class="line">        <span class="keyword">if</span> (right &gt; l) &#123;</span><br><span class="line">            quickSort(arr, l, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/w3cnote/selection-sort.html" target="_blank" rel="noopener">选择排序</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/5223afa8796c" target="_blank" rel="noopener">图解 选择排序</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.cnblogs.com/2019wxw/p/11234072.html" target="_blank" rel="noopener">选择排序算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.geeksforgeeks.org/selection-sort/" target="_blank" rel="noopener">Selection Sort</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a></p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/w3cnote/quick-sort.html" target="_blank" rel="noopener">快速排序</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://baike.baidu.com/item/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/369842?fromtitle=%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&fromid=2084344&fr=aladdin" target="_blank" rel="noopener">快速排序算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/a68f72278f8f" target="_blank" rel="noopener">图解 快速排序</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_algorithm.htm" target="_blank" rel="noopener">Data Structure and Algorithms - Quick Sort</a></p>
 
       
     </div>
@@ -305,12 +305,12 @@
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/">Algorithm Selection Sort</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/">Algorithm Quick Sort</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2020-03-17 18:28:18</p>
-        <p><span>   Last Update:</span>2020-03-17 01:06:34</p>
+        <p><span>  Release Time:</span>2020-03-22 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-22 12:03:34</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/" title="Algorithm Selection Sort">https://mafuning.github.io/2020/03/17/2020-03-17-Algorithm-Selection-Sort/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/" title="Algorithm Quick Sort">https://mafuning.github.io/2020/03/22/2020-03-22-Algorithm-Quick-Sort/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -321,18 +321,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Design Patterns(十一) Proxy
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Algorithm Bubble Sort</div>
+    <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Design Patterns(二十二) Chain of Responsibility</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -344,7 +335,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择排序"><span class="toc-number">2.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速排序"><span class="toc-number">2.</span> <span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -393,13 +384,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/" title="Previous: Design Patterns(十一) Proxy">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/" title="Next: Algorithm Bubble Sort">
+            <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/" title="Next: Design Patterns(二十二) Chain of Responsibility">
                 <i class="fa fa-angle-right"></i>
             </a>
         
