@@ -7,21 +7,20 @@
   
   
   
-  <title>Design Patterns(十二) Template Method | Funing Ma&#39;s Blog</title>
+  <title>Data Structure Hash Table | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Template method design pattern is to define an algorithm as skeleton of operations and leave the details to be implemented by the child classes. The overall structure and sequence of the algorithm is">
-<meta name="keywords" content="Design Patterns,Template Method">
+  <meta name="description" content="Hash Table is a data structure which stores data in an associative manner. In a hash table, data is stored in an array format, where each data value has its own unique index value. Access of data beco">
+<meta name="keywords" content="Data Structure,Hash Table">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Design Patterns(十二) Template Method">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method&#x2F;index.html">
+<meta property="og:title" content="Data Structure Hash Table">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;23&#x2F;2020-03-23-Data-Structure-Hash-Table&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="Template method design pattern is to define an algorithm as skeleton of operations and leave the details to be implemented by the child classes. The overall structure and sequence of the algorithm is">
+<meta property="og:description" content="Hash Table is a data structure which stores data in an associative manner. In a hash table, data is stored in an array format, where each data value has its own unique index value. Access of data beco">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method&#x2F;template_pattern_uml.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method&#x2F;template_pattern_example.jpg">
-<meta property="og:updated_time" content="2020-03-18T16:06:34.254Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;23&#x2F;2020-03-23-Data-Structure-Hash-Table&#x2F;hash_table_info.png">
+<meta property="og:updated_time" content="2020-03-23T08:29:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;18&#x2F;2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method&#x2F;template_pattern_uml.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;23&#x2F;2020-03-23-Data-Structure-Hash-Table&#x2F;hash_table_info.png">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -232,11 +231,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2020-03-18-Design-Patterns【十二】-Template-Method" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-23-Data-Structure-Hash-Table" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/" class="article-date">
-      <time datetime="2020-03-18T10:28:18.000Z" itemprop="datePublished">2020-03-18</time>
+      <a  href="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/" class="article-date">
+      <time datetime="2020-03-23T10:28:18.000Z" itemprop="datePublished">2020-03-23</time>
 </a>
 
     </div>
@@ -250,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Design Patterns(十二) Template Method
+      Data Structure Hash Table
     </h1>
   
 
@@ -260,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/backend/">backend</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Template-Method/" rel="tag">Template Method</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structure/" rel="tag">Data Structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash Table</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -276,32 +275,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Template method design pattern is to define an algorithm as skeleton of operations and leave the details to be implemented by the child classes. The overall structure and sequence of the algorithm is preserved by the parent class.</p>
+        <p>Hash Table is a data structure which stores data in an associative manner. In a hash table, data is stored in an array format, where each data value has its own unique index value. Access of data becomes very fast if we know the index of the desired data.</p>
 <a id="more"></a>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;模板方法模式定义了一个算法的步骤，并允许子类别为一个或多个步骤提供其实践方式。让子类别在不改变算法架构的情况下，重新定义算法中的某些步骤。在软件工程中，它是一种软件设计模式，和C++模板没有关连。</p>
-<h1 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a><strong>模板方法模式</strong></h1><p>基本介绍：</p>
-<p>1) 模板方法模式（Template Method Pattern），又叫模板模式(Template Pattern)，在一个抽象类公开定义了执行它的方法的模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行；<br>2) 简单说， 模板方法模 式 定义一个操作中的算法的骨架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构，就可以重定义该算法的某些特定步骤；<br>3) 这种类型的设计模式属于行为型模式。</p>
-<p><strong>模板方法模式-UML图：</strong></p>
-<img src="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/template_pattern_uml.jpg" class title="introduction">
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;哈希表（Hash table，也叫散列表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表。</p>
+<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a><strong>哈希表</strong></h1><p>哈希表介绍:</p>
+<p>1)若关键字为k，则其值存放在f(k)的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数，按这个思想建立的表为散列表。<br>2)对不同的关键字可能得到同一散列地址，即k1≠k2，而f(k1)=f(k2)，这种现象称为冲突（英语：Collision）。具有相同函数值的关键字对该散列函数来说称做同义词。综上所述，根据散列函数f(k)和处理冲突的方法将一组关键字映射到一个有限的连续的地址集（区间）上，并以关键字在地址集中的“像”作为记录在表中的存储位置，这种表便称为散列表，这一映射过程称为散列造表或散列，所得的存储位置称散列地址。<br>3)若对于关键字集合中的任一个关键字，经散列函数映象到地址集合中任何一个地址的概率是相等的，则称此类散列函数为均匀散列函数（Uniform Hash function），这就是使关键字经过散列函数得到一个“随机的地址”，从而减少冲突。</p>
+<p>哈希表图解：</p>
+<img src="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/hash_table_info.png" class title="introduction">
 
 <br>
 
+<p>google公司的一个上机题：</p>
+<p>有一个公司,当有新的员工来报道时,要求将该员工的信息加入(id,性别,年龄,住址..),当输入该员工的id时,要求查找到该员工的 所有信息.</p>
+<p>要求: 不使用数据库,尽量节省内存,速度越快越好=&gt;哈希表(散列)</p>
+<p>哈希表代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<p><strong>模板方法模式-类图：</strong></p>
-<br>
-
-<img src="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/template_pattern_example.jpg" class title="introduction">
-
-<br>
-
-<p>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-18 0:40</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 模板方法模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TemplateMethod</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Game football = <span class="keyword">new</span> Football(<span class="string">"足球"</span>);</span><br><span class="line">        Game basketball = <span class="keyword">new</span> Basketball(<span class="string">"篮球"</span>);</span><br><span class="line"></span><br><span class="line">        football.play();</span><br><span class="line">        System.out.println(<span class="string">"===========分割线==========="</span>);</span><br><span class="line">        basketball.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 抽象类， 类中实现了模板方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Game</span> </span>&#123;</span><br><span class="line">    String gameName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Game</span><span class="params">(String gameName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.gameName = gameName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">warmup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(gameName + <span class="string">"运动员热身"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(gameName + <span class="string">"比赛开始"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//抽象方法, 子类具体实现</span></span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">end</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(gameName + <span class="string">"比赛结束"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//钩子方法，决定是否需要暂停</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        warmup();</span><br><span class="line">        start();</span><br><span class="line">        <span class="keyword">if</span> (isStop()) &#123;</span><br><span class="line">            stop();</span><br><span class="line">        &#125;</span><br><span class="line">        end();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Football</span> <span class="keyword">extends</span> <span class="title">Game</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Football</span><span class="params">(String gameName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(gameName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//实现抽象方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Basketball</span> <span class="keyword">extends</span> <span class="title">Game</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Basketball</span><span class="params">(String gameName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(gameName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.gameName + <span class="string">"比赛可以暂停"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>模板方法模式的注意事项和细节:</p>
-<p> 1) 基本思想是： 算法只存在于一个地方，也就是在父类中，容易修改。需要修改算法时，只要修改父类的模板方法或者已经实现的某些步骤，子类就会继承这些修改；<br>2) 实现了最大化代码复用。父类的模板方法和已实现的某些步骤会被子类继承而直接使用；<br>3) 既统一了算法，也提供了很大的灵活性。父类的模板方法确保了算法的结构保持不变，同时由子类提供部分步骤的实现；<br>4) 该模式的不足之处：每一个不同的实现都需要一个子类实现，导致类的个数增加，使得系统更加庞大；<br>5) 一般模板方法都加上final关键字， 防止子类重写模板方法；<br>6) 模板方法模式使用场景： 当要 完成在 某个 过 程， 该过程要执行一系列步骤 ， 这一系列的步骤基本相同，但其 个别步骤在实现时 可能不同，通常考虑用模板方法模式来处理。</p>
-<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/82abdbabe2a5" target="_blank" rel="noopener">模板方法模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/design-pattern/template-pattern.html" target="_blank" rel="noopener">模板模式-菜鸟教程</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm" target="_blank" rel="noopener">Design Patterns - Template Pattern</a><br>&ensp;&ensp;&ensp;&ensp;<a href="http://c.biancheng.net/view/1376.html" target="_blank" rel="noopener">模板方法模式（模板方法设计模式）详解</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av57936239" target="_blank" rel="noopener">尚硅谷Java设计模式，韩顺平图解java设计模式</a></p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://baike.baidu.com/item/%E5%93%88%E5%B8%8C%E8%A1%A8/5981869?fr=aladdin" target="_blank" rel="noopener">哈希表</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表—什么是哈希表</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/u011109881/article/details/80379505" target="_blank" rel="noopener">数据结构 Hash表（哈希表）</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm" target="_blank" rel="noopener">Data Structure and Algorithms - Hash Table</a></p>
 
       
     </div>
@@ -310,12 +302,12 @@
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/">Design Patterns(十二) Template Method</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/">Data Structure Hash Table</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2020-03-18 18:28:18</p>
-        <p><span>   Last Update:</span>2020-03-19 00:06:34</p>
+        <p><span>  Release Time:</span>2020-03-23 18:28:18</p>
+        <p><span>   Last Update:</span>2020-03-23 16:29:52</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/" title="Design Patterns(十二) Template Method">https://mafuning.github.io/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/" title="Data Structure Hash Table">https://mafuning.github.io/2020/03/23/2020-03-23-Data-Structure-Hash-Table/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -326,18 +318,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%89%E3%80%91-Command/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Design Patterns(十三) Command
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Algorithm Shell Sort</div>
+    <a  href="/2020/03/23/2020-03-23-Algorithm-Fibonacci-Search/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm Fibonacci Search</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -349,7 +332,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模板方法模式"><span class="toc-number">2.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">4.</span> <span class="toc-text">延伸</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#哈希表"><span class="toc-number">2.</span> <span class="toc-text">哈希表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -398,13 +381,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%89%E3%80%91-Command/" title="Previous: Design Patterns(十三) Command">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/" title="Next: Algorithm Shell Sort">
+            <a  href="/2020/03/23/2020-03-23-Algorithm-Fibonacci-Search/" title="Next: Algorithm Fibonacci Search">
                 <i class="fa fa-angle-right"></i>
             </a>
         
