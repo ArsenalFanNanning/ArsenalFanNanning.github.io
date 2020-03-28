@@ -7,21 +7,20 @@
   
   
   
-  <title>Design Patterns(二十一) Strategy | Funing Ma&#39;s Blog</title>
+  <title>Algorithm Dynamic Programming | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Strategy Design Pattern is a type of behavioral design pattern that encapsulates a “family” of algorithms and selects one from the pool for use during runtime. The algorithms are interchangeable, mean">
-<meta name="keywords" content="Design Patterns,Strategy">
+  <meta name="description" content="Dynamic programming approach is similar to divide and conquer in breaking down the problem into smaller and yet smaller possible sub-problems. But unlike, divide and conquer, these sub-problems are no">
+<meta name="keywords" content="algorithm,Dynamic Programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Design Patterns(二十一) Strategy">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy&#x2F;index.html">
+<meta property="og:title" content="Algorithm Dynamic Programming">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;28&#x2F;2020-03-28-Algorithm-Dynamic-Programming&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="Strategy Design Pattern is a type of behavioral design pattern that encapsulates a “family” of algorithms and selects one from the pool for use during runtime. The algorithms are interchangeable, mean">
+<meta property="og:description" content="Dynamic programming approach is similar to divide and conquer in breaking down the problem into smaller and yet smaller possible sub-problems. But unlike, divide and conquer, these sub-problems are no">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy&#x2F;strategy_pattern_uml.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy&#x2F;strategy_pattern_example.png">
-<meta property="og:updated_time" content="2020-03-21T10:14:04.172Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;28&#x2F;2020-03-28-Algorithm-Dynamic-Programming&#x2F;dynamic_programming_package_problem.png">
+<meta property="og:updated_time" content="2020-03-28T10:57:16.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy&#x2F;strategy_pattern_uml.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;28&#x2F;2020-03-28-Algorithm-Dynamic-Programming&#x2F;dynamic_programming_package_problem.png">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
   
@@ -232,11 +231,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2020-03-21-Design-Patterns【二十一】-Strategy" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-28-Algorithm-Dynamic-Programming" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/" class="article-date">
-      <time datetime="2020-03-21T10:28:28.000Z" itemprop="datePublished">2020-03-21</time>
+      <a  href="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/" class="article-date">
+      <time datetime="2020-03-28T10:28:18.000Z" itemprop="datePublished">2020-03-28</time>
 </a>
 
     </div>
@@ -250,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Design Patterns(二十一) Strategy
+      Algorithm Dynamic Programming
     </h1>
   
 
@@ -260,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/backend/">backend</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strategy/" rel="tag">Strategy</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -276,38 +275,24 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Strategy Design Pattern is a type of behavioral design pattern that encapsulates a “family” of algorithms and selects one from the pool for use during runtime. The algorithms are interchangeable, meaning that they are substitutable for each other.</p>
+        <p>Dynamic programming approach is similar to divide and conquer in breaking down the problem into smaller and yet smaller possible sub-problems. But unlike, divide and conquer, these sub-problems are not solved independently. Rather, results of these smaller sub-problems are remembered and used for similar or overlapping sub-problems.</p>
 <a id="more"></a>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;策略模式（Strategy Pattern）定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的变化不会影响使用算法的客户。策略模式属于对象行为模式，它通过对算法进行封装，把使用算法的责任和算法的实现分割开来，并委派给不同的对象对这些算法进行管理。</p>
-<h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a><strong>策略模式</strong></h1><p>基本介绍：</p>
-<p>1) 策略模式（Strategy Pattern）中，定义算法族，分别封装起来，让他们之间可以互相替换，此模式让算法的变化独立于使用算法的客户；<br>2) 这算法体现了几个设计原则，第一、把变化的代码从不变的代码中分离出来；第二、针对接口编程而不是具体类（定义了策略接口）；第三、多用组 合/ 聚合，少用继承（客户通过组合方式使用策略 ）。</p>
-<p>角色介绍：</p>
-<p>1)抽象策略（Strategy）类：定义了一个公共接口，各种不同的算法以不同的方式实现这个接口，环境角色使用这个接口调用不同的算法，一般使用接口或抽象类实现;<br>2)具体策略（Concrete Strategy）类：实现了抽象策略定义的接口，提供具体的算法实现;<br>3)环境（Context）类：持有一个策略类的引用，最终给客户端调用。</p>
-<p><strong>策略模式-UML图：</strong></p>
-<img src="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/strategy_pattern_uml.jpg" class title="introduction">
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;动态规划，将大问题划分为小问题进行解决，从而一步步获取最优解的处理算法。</p>
+<h1 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a><strong>动态规划算法</strong></h1><p>动态规划算法介绍</p>
+<p>1)动态规划(Dynamic Programming)算法的核心思想是：将大问题划分为小问题进行解决，从而一步步获取最优解的处理算法；<br>2)动态规划算法与分治算法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解；<br>3)与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往不是互相独立的。 ( 即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解 )；<br>4)动态规划可以通过填表的方式来逐步推进，得到最优解。</p>
+<p>动态规划算法背包问题：</p>
+<img src="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/dynamic_programming_package_problem.png" class title="introduction">
 
 <br>
 
-<br>
-
-<br>
-
-<br>
-
-<p><strong>策略模式-实例图：</strong></p>
-<img src="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/strategy_pattern_example.png" class title="introduction">
-
-<br>
+<p>思路分析</p>
+<p>算法的主要思想，利用动态规划来解决。每次遍历到的第i个物品，根据w[i]和v[i]来确定是否需要将该物品放入背包中。即对于给定的n个物品，设v[i]、w[i]分别为第i个物品的价值和重量，C为背包的容量。再令v[i][j]表示在前i个物品中能够装入容量为j的背包中的最大价值。则我们有下面的结果：<br>(1)  v[i][0]=v[0][j]=0; //表示 填入表 第一行和第一列是0；<br>(2) 当w[i]&gt; j 时：v[i][j]=v[i-1][j]   // 当准备加入新增的商品的容量大于 当前背包的容量时，就直接使用上一个单元格的装入策略；<br>(3) 当j&gt;=w[i]时： v[i][j]=max{v[i-1][j], v[i]+v[i-1][j-w[i]]}  。</p>
+<p>背包问题代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-
-<p>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-21 18:00</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 策略模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String type = <span class="string">"满300减100"</span>;</span><br><span class="line">        CashContext cc = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"正常收费"</span>:</span><br><span class="line">                cc = <span class="keyword">new</span> CashContext(<span class="keyword">new</span> CashNormal());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"满300减100"</span>:</span><br><span class="line">                cc = <span class="keyword">new</span> CashContext(<span class="keyword">new</span> CashReturn(<span class="number">300</span>, <span class="number">100</span>));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"打8折"</span>:</span><br><span class="line">                cc = <span class="keyword">new</span> CashContext(<span class="keyword">new</span> CashRebate(<span class="number">0.8</span>));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> resultPrice = cc.GetResult(<span class="number">520</span>);</span><br><span class="line">        System.out.println(<span class="string">"最终的价格是："</span> + resultPrice);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Strategy类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 现金收取超类方法，传入原价，返回当前价</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">acceptCash</span><span class="params">(<span class="keyword">double</span> money)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ConcreteStrategy类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashNormal</span> <span class="keyword">extends</span> <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">acceptCash</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 正常收费，返回原价</span></span><br><span class="line">        <span class="keyword">return</span> money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ConcreteStrategy类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashRebate</span> <span class="keyword">extends</span> <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> moneyRebate = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CashRebate</span><span class="params">(<span class="keyword">double</span> moneyRebate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.moneyRebate = moneyRebate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">acceptCash</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 正常收费，返回原价</span></span><br><span class="line">        <span class="keyword">return</span> money * moneyRebate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ConcreteStrategy类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashReturn</span> <span class="keyword">extends</span> <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> moneyCondition = <span class="number">0</span>;<span class="comment">// 满足的条件</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> moneyReturn = <span class="number">0</span>;<span class="comment">//返利</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CashReturn</span><span class="params">(<span class="keyword">double</span> moneyCondition, <span class="keyword">double</span> moneyReturn)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.moneyCondition = moneyCondition;</span><br><span class="line">        <span class="keyword">this</span>.moneyReturn = moneyReturn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">acceptCash</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> result = money;</span><br><span class="line">        <span class="keyword">if</span> (money &gt;= moneyCondition) &#123;</span><br><span class="line">            result = money - Math.floor(money / moneyCondition) * moneyReturn;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Context类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashContext</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> CashSuper cs;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CashContext</span><span class="params">(CashSuper cs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.cs = cs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">GetResult</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cs.acceptCash(money);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>策略模式的注意事项和细节:</p>
-<p>1) 策略模式的关键是：分析项目中变化部分与不变部分；<br>2) 策略模式的核心思想是：多用组合/聚合 少用继承；用行为类组合，而不是行为的继承。更有弹性；<br>3) 体现了“对修改关闭，对扩展开放”原则，客户端增加行为不用修改原有代码，只要添加一种策略（或者行为）即可，避免了使用多重转移语句（if..else if..else）；<br>4) 提供了可以替换继承关系的办法： 策略模式将算法封装在独立的Strategy类中使得你可以独立于其Context改变它，使它易于切换、易于理解、易于扩展；<br>5) 需要注意的是：每添加一个策略就要增加一个类，当策略过多是会导致类数目庞大。</p>
-<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/tugangkai/article/details/88074288" target="_blank" rel="noopener">深入解析策略模式</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.runoob.com/design-pattern/strategy-pattern.html" target="_blank" rel="noopener">策略模式-菜鸟教程</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/qq_31156277/article/details/90484550" target="_blank" rel="noopener">策略模式（策略设计模式）详解</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm" target="_blank" rel="noopener">Design Patterns - Strategy Pattern</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av57936239" target="_blank" rel="noopener">尚硅谷Java设计模式，韩顺平图解java设计模式</a></p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/742f37efa64d" target="_blank" rel="noopener">分治算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/862bc7144f80" target="_blank" rel="noopener">分治算法总结</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://baike.baidu.com/item/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/3263297?fr=aladdin" target="_blank" rel="noopener">分治算法-百度百科</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/data_structures_algorithms/divide_and_conquer.htm" target="_blank" rel="noopener">Data Structures - Divide and Conquer</a></p>
 
       
     </div>
@@ -316,12 +301,12 @@
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/">Design Patterns(二十一) Strategy</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/">Algorithm Dynamic Programming</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2020-03-21 18:28:28</p>
-        <p><span>   Last Update:</span>2020-03-21 18:14:04</p>
+        <p><span>  Release Time:</span>2020-03-28 18:28:18</p>
+        <p><span>   Last Update:</span>2020-03-28 18:57:16</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/" title="Design Patterns(二十一) Strategy">https://mafuning.github.io/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/" title="Algorithm Dynamic Programming">https://mafuning.github.io/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -332,18 +317,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Design Patterns(二十二) Chain of Responsibility
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E3%80%91-State/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Design Patterns(二十) State</div>
+    <a  href="/2020/03/28/2020-03-28-Algorithm-Divide-And-Conquer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm Divide-And-Conquer</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -355,7 +331,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#策略模式"><span class="toc-number">2.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">4.</span> <span class="toc-text">延伸</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态规划算法"><span class="toc-number">2.</span> <span class="toc-text">动态规划算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -404,13 +380,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/" title="Previous: Design Patterns(二十二) Chain of Responsibility">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E3%80%91-State/" title="Next: Design Patterns(二十) State">
+            <a  href="/2020/03/28/2020-03-28-Algorithm-Divide-And-Conquer/" title="Next: Algorithm Divide-And-Conquer">
                 <i class="fa fa-angle-right"></i>
             </a>
         
