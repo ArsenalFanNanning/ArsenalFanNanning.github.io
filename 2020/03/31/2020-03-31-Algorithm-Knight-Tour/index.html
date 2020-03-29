@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Algorithm Knight Tour | Funing Ma&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Knight’s tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. If the knight ends on a square that is one knight’s move from the beginning squa">
+<meta name="keywords" content="Algorithm,Knight Tour">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm Knight Tour">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;31&#x2F;2020-03-31-Algorithm-Knight-Tour&#x2F;index.html">
+<meta property="og:site_name" content="Funing Ma&#39;s Blog">
+<meta property="og:description" content="Knight’s tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. If the knight ends on a square that is one knight’s move from the beginning squa">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;31&#x2F;2020-03-31-Algorithm-Knight-Tour&#x2F;chess.png">
+<meta property="og:updated_time" content="2020-03-29T13:13:41.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;31&#x2F;2020-03-31-Algorithm-Knight-Tour&#x2F;chess.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Funing Ma</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Developer. Designer</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Links</li>
+                        
+                        
+                        <li>About</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">article</a></li>
+                        
+                            <li><a  href="/categories/backend">backend</a></li>
+                        
+                            <li><a  href="/categories/frontend">frontend</a></li>
+                        
+                            <li><a  href="/categories/database">database</a></li>
+                        
+                            <li><a  href="/categories/algorithm">algorithm</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                            
+                                <a class="fl twitter"  target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                            
+                                <a class="fl google"  target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/AVL-Tree/" style="font-size: 10px;">AVL Tree</a> <a href="/tags/Adapter/" style="font-size: 10px;">Adapter</a> <a href="/tags/Algorithm/" style="font-size: 18.33px;">Algorithm</a> <a href="/tags/Binary-Sort-Tree/" style="font-size: 10px;">Binary Sort Tree</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Bridge/" style="font-size: 10px;">Bridge</a> <a href="/tags/Builder/" style="font-size: 10px;">Builder</a> <a href="/tags/Chain-of-Responsibility/" style="font-size: 10px;">Chain of Responsibility</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Composite/" style="font-size: 10px;">Composite</a> <a href="/tags/DVCS/" style="font-size: 10px;">DVCS</a> <a href="/tags/Data-Structure/" style="font-size: 16.67px;">Data Structure</a> <a href="/tags/Decorator/" style="font-size: 10px;">Decorator</a> <a href="/tags/Design-Patterns/" style="font-size: 20px;">Design Patterns</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/Divide-And-Conquer/" style="font-size: 10px;">Divide-And-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic Programming</a> <a href="/tags/Facade/" style="font-size: 10px;">Facade</a> <a href="/tags/Factory/" style="font-size: 10px;">Factory</a> <a href="/tags/Floyd/" style="font-size: 10px;">Floyd</a> <a href="/tags/Flyweight/" style="font-size: 10px;">Flyweight</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.67px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash Table</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Huffman-Tree/" style="font-size: 10px;">Huffman Tree</a> <a href="/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/Knight-Tour/" style="font-size: 10px;">Knight Tour</a> <a href="/tags/Kruskal/" style="font-size: 10px;">Kruskal</a> <a href="/tags/LinkedList/" style="font-size: 10px;">LinkedList</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mediator/" style="font-size: 10px;">Mediator</a> <a href="/tags/Memento/" style="font-size: 10px;">Memento</a> <a href="/tags/MyBatis/" style="font-size: 11.67px;">MyBatis</a> <a href="/tags/Mysql/" style="font-size: 11.67px;">Mysql</a> <a href="/tags/Observer/" style="font-size: 10px;">Observer</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Prim/" style="font-size: 10px;">Prim</a> <a href="/tags/Principles/" style="font-size: 10px;">Principles</a> <a href="/tags/Prototype/" style="font-size: 10px;">Prototype</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick-Start/" style="font-size: 10px;">Quick Start</a> <a href="/tags/Search/" style="font-size: 13.33px;">Search</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Sort/" style="font-size: 15px;">Sort</a> <a href="/tags/Sparse-Array/" style="font-size: 10px;">Sparse Array</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/Template-Method/" style="font-size: 10px;">Template Method</a> <a href="/tags/UpdateBatch/" style="font-size: 10px;">UpdateBatch</a> <a href="/tags/Visitor/" style="font-size: 10px;">Visitor</a> <a href="/tags/Webpages/" style="font-size: 10px;">Webpages</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com">jianshu</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer.Designer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Home">Funing Ma</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Home">Funing Ma</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Developer. Designer</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">article</a></li>
+                
+                    <li><a href="/categories/backend">backend</a></li>
+                
+                    <li><a href="/categories/frontend">frontend</a></li>
+                
+                    <li><a href="/categories/database">database</a></li>
+                
+                    <li><a href="/categories/algorithm">algorithm</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                    
+                        <a class="google" target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2020-03-31-Algorithm-Knight-Tour" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/" class="article-date">
+      <time datetime="2020-03-31T10:18:18.000Z" itemprop="datePublished">2020-03-31</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Algorithm Knight Tour
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Knight-Tour/" rel="tag">Knight Tour</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Knight’s tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. If the knight ends on a square that is one knight’s move from the beginning square (so that it could tour the board again immediately, following the same path), the tour is closed; otherwise, it is open.</p>
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;马踏棋盘是经典的程序设计问题之一，主要的解决方案有两种：一种是基于深度优先搜索的方法，另一种是基于贪婪算法的方法。第一种基于深度优先搜索的方法是比较常用的算法，深度优先搜索算法也是数据结构中的经典算法之一，主要是采用递归的思想，一级一级的寻找，遍历出所有的结果，最后找到合适的解。而基于贪婪的算法则是制定贪心准则，一旦设定不能修改，他只关心局部最优解，但不一定能得到最优解。</p>
+<h1 id="马踏棋盘算法"><a href="#马踏棋盘算法" class="headerlink" title="马踏棋盘算法"></a><strong>马踏棋盘算法</strong></h1><p>马踏棋盘算法介绍：</p>
+<p>1)马踏棋盘算法也被称为骑士周游问题;<br>2)将马随机放在国际象棋的8×8棋盘Board[0～7][0～7]的某个方格中，马按走棋规则(马走日字)进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。</p>
+<p>马踏棋盘算法步骤：</p>
+<p>1)马踏棋盘问题(骑士周游问题)实际上是图的深度优先搜索(DFS)的应用；<br>2)如果使用回溯（就是深度优先搜索）来解决，假如马儿踏了53个点，如图：走到了第53个，坐标（1,0），发现已经走到尽头，没办法，那就只能回退了，查看其他的路径，就在棋盘上不停的回溯…… ，思路分析+代码实现；<br>3)分析第一种方式的问题，并使用贪心算法（greedyalgorithm）进行优化。解决马踏棋盘问题。</p>
+<p>马踏棋盘算法问题：</p>
+<img src="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/chess.png" class title="introduction">
+
+<br>
+
+<p>马踏棋盘算法代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.Point;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-28 20:25</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 骑士周游回溯算法(马踏棋盘算法)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightTour</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> X; <span class="comment">// 棋盘的列数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> Y; <span class="comment">// 棋盘的行数</span></span><br><span class="line">    <span class="comment">//创建一个数组，标记棋盘的各个位置是否被访问过</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> visited[];</span><br><span class="line">    <span class="comment">//使用一个属性，标记是否棋盘的所有位置都被访问</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> finished; <span class="comment">// 如果为true,表示成功</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"骑士周游算法，开始运行~~"</span>);</span><br><span class="line">        <span class="comment">//测试骑士周游算法是否正确</span></span><br><span class="line">        X = <span class="number">8</span>;</span><br><span class="line">        Y = <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">int</span> row = <span class="number">1</span>; <span class="comment">//马儿初始位置的行，从1开始编号</span></span><br><span class="line">        <span class="keyword">int</span> column = <span class="number">1</span>; <span class="comment">//马儿初始位置的列，从1开始编号</span></span><br><span class="line">        <span class="comment">//创建棋盘</span></span><br><span class="line">        <span class="keyword">int</span>[][] chessboard = <span class="keyword">new</span> <span class="keyword">int</span>[X][Y];</span><br><span class="line">        visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[X * Y];<span class="comment">//初始值都是false</span></span><br><span class="line">        <span class="comment">//测试一下耗时</span></span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        traversalChessboard(chessboard, row - <span class="number">1</span>, column - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"共耗时: "</span> + (end - start) + <span class="string">" 毫秒"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//输出棋盘的最后情况</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] rows : chessboard) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> step : rows) &#123;</span><br><span class="line">                System.out.print(step + <span class="string">"\t"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 完成骑士周游问题的算法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chessboard 棋盘</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> row        马儿当前的位置的行 从0开始</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> column     马儿当前的位置的列  从0开始</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> step       是第几步 ,初始位置就是第1步</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">traversalChessboard</span><span class="params">(<span class="keyword">int</span>[][] chessboard, <span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> step)</span> </span>&#123;</span><br><span class="line">        chessboard[row][column] = step;</span><br><span class="line">        <span class="comment">//row = 4 X = 8 column = 4 = 4 * 8 + 4 = 36</span></span><br><span class="line">        visited[row * X + column] = <span class="keyword">true</span>; <span class="comment">//标记该位置已经访问</span></span><br><span class="line">        <span class="comment">//获取当前位置可以走的下一个位置的集合</span></span><br><span class="line">        ArrayList&lt;Point&gt; ps = next(<span class="keyword">new</span> Point(column, row));</span><br><span class="line">        <span class="comment">//对ps进行排序,排序的规则就是对ps的所有的Point对象的下一步的位置的数目，进行非递减排序</span></span><br><span class="line">        sort(ps);</span><br><span class="line">        <span class="comment">//遍历 ps</span></span><br><span class="line">        <span class="keyword">while</span> (!ps.isEmpty()) &#123;</span><br><span class="line">            Point p = ps.remove(<span class="number">0</span>);<span class="comment">//取出下一个可以走的位置</span></span><br><span class="line">            <span class="comment">//判断该点是否已经访问过</span></span><br><span class="line">            <span class="keyword">if</span> (!visited[p.y * X + p.x]) &#123;<span class="comment">//说明还没有访问过</span></span><br><span class="line">                traversalChessboard(chessboard, p.y, p.x, step + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿是否完成了任务，使用   step 和应该走的步数比较 ，</span></span><br><span class="line">        <span class="comment">//如果没有达到数量，则表示没有完成任务，将整个棋盘置0</span></span><br><span class="line">        <span class="comment">//说明: step &lt; X * Y  成立的情况有两种</span></span><br><span class="line">        <span class="comment">//1. 棋盘到目前位置,仍然没有走完</span></span><br><span class="line">        <span class="comment">//2. 棋盘处于一个回溯过程</span></span><br><span class="line">        <span class="keyword">if</span> (step &lt; X * Y &amp;&amp; !finished) &#123;</span><br><span class="line">            chessboard[row][column] = <span class="number">0</span>;</span><br><span class="line">            visited[row * X + column] = <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            finished = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 功能： 根据当前位置(Point对象)，计算马儿还能走哪些位置(Point)，并放入到一个集合中(ArrayList), 最多有8个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> curPoint</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Point&gt; <span class="title">next</span><span class="params">(Point curPoint)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个ArrayList</span></span><br><span class="line">        ArrayList&lt;Point&gt; ps = <span class="keyword">new</span> ArrayList&lt;Point&gt;();</span><br><span class="line">        <span class="comment">//创建一个Point</span></span><br><span class="line">        Point p1 = <span class="keyword">new</span> Point();</span><br><span class="line">        <span class="comment">//表示马儿可以走5这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x - <span class="number">2</span>) &gt;= <span class="number">0</span> &amp;&amp; (p1.y = curPoint.y - <span class="number">1</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走6这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x - <span class="number">1</span>) &gt;= <span class="number">0</span> &amp;&amp; (p1.y = curPoint.y - <span class="number">2</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走7这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x + <span class="number">1</span>) &lt; X &amp;&amp; (p1.y = curPoint.y - <span class="number">2</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走0这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x + <span class="number">2</span>) &lt; X &amp;&amp; (p1.y = curPoint.y - <span class="number">1</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走1这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x + <span class="number">2</span>) &lt; X &amp;&amp; (p1.y = curPoint.y + <span class="number">1</span>) &lt; Y) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走2这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x + <span class="number">1</span>) &lt; X &amp;&amp; (p1.y = curPoint.y + <span class="number">2</span>) &lt; Y) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走3这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x - <span class="number">1</span>) &gt;= <span class="number">0</span> &amp;&amp; (p1.y = curPoint.y + <span class="number">2</span>) &lt; Y) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断马儿可以走4这个位置</span></span><br><span class="line">        <span class="keyword">if</span> ((p1.x = curPoint.x - <span class="number">2</span>) &gt;= <span class="number">0</span> &amp;&amp; (p1.y = curPoint.y + <span class="number">1</span>) &lt; Y) &#123;</span><br><span class="line">            ps.add(<span class="keyword">new</span> Point(p1));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ps;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据当前这个一步的所有的下一步的选择位置，进行非递减排序, 减少回溯的次数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(ArrayList&lt;Point&gt; ps)</span> </span>&#123;</span><br><span class="line">        ps.sort(<span class="keyword">new</span> Comparator&lt;Point&gt;() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Point o1, Point o2)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//获取到o1的下一步的所有位置个数</span></span><br><span class="line">                <span class="keyword">int</span> count1 = next(o1).size();</span><br><span class="line">                <span class="comment">//获取到o2的下一步的所有位置个数</span></span><br><span class="line">                <span class="keyword">int</span> count2 = next(o2).size();</span><br><span class="line">                <span class="keyword">if</span> (count1 &lt; count2) &#123;</span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count1 == count2) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/super_yc/article/details/73064735" target="_blank" rel="noopener">马踏棋盘的实现</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://baike.baidu.com/item/%E9%A9%AC%E8%B8%8F%E6%A3%8B%E7%9B%98/3611981?fr=aladdin" target="_blank" rel="noopener">马踏棋盘-百度百科</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/6c185f290e10" target="_blank" rel="noopener">马踏棋盘（贪心算法）</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://en.wikipedia.org/wiki/Knight%27s_tour" target="_blank" rel="noopener">Knight’s tour - Wikipedia</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span> Article Title:</span><a  href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/">Algorithm Knight Tour</a></p>
+        <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
+        <p><span>  Release Time:</span>2020-03-31 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-29 21:13:41</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/" title="Algorithm Knight Tour">https://mafuning.github.io/2020/03/31/2020-03-31-Algorithm-Knight-Tour/</a>
+        </p>
+        <p>
+            <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2020/03/30/2020-03-30-Algorithm-Floyd/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm Floyd</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Content</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#马踏棋盘算法"><span class="toc-number">2.</span> <span class="toc-text">马踏棋盘算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="hide"  title="click hide content or display content">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "hide";
+    var valueShow = "dispaly";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
+        
+        <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/03/30/2020-03-30-Algorithm-Floyd/" title="Next: Algorithm Floyd">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/">Algorithm Knight Tour</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/2020-03-30-Algorithm-Floyd/">Algorithm Floyd</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Dijkstra/">Algorithm Dijkstra</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Kruskal/">Algorithm Kruskal</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Prim/">Algorithm Prim</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Greedy/">Algorithm Greedy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-KMP/">Algorithm KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/">Algorithm Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-Divide-And-Conquer/">Algorithm Divide-And-Conquer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Data-Structure-Graph/">Data Structure Graph</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/27/2020-03-27-Data-Structure-AVL-Tree/">Data Structure AVL Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/27/2020-03-27-Data-Structure-Binary-Sort-Tree/">Data Structure Binary Sort Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/26/2020-03-26-Data-Structure-Huffman-Tree/">Data Structure Huffman Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/25/2020-03-25-Algorithm-Heap-Sort/">Algorithm Heap Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/2020-03-24-Data-Structure-Binary-Tree/">Data Structure Binary Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/">Data Structure Hash Table</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Algorithm-Fibonacci-Search/">Algorithm Fibonacci Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Algorithm-Interpolation-Search/">Algorithm Interpolation Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Binary-Search/">Algorithm Binary Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Linear-Search/">Algorithm Linear Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Radix-Sort/">Algorithm Radix Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Merge-Sort/">Algorithm Merge Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/">Algorithm Quick Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/">Design Patterns(二十二) Chain of Responsibility</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/">Design Patterns(二十一) Strategy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E3%80%91-State/">Design Patterns(二十) State</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91-Interpreter/">Design Patterns(十九) Interpreter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AB%E3%80%91-Memento/">Design Patterns(十八) Memento</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%83%E3%80%91-Mediator/">Design Patterns(十七) Mediator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AD%E3%80%91-Observer/">Design Patterns(十六) Observer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%94%E3%80%91-Iterator/">Design Patterns(十五) Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E5%9B%9B%E3%80%91-Visitor/">Design Patterns(十四) Visitor</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%89%E3%80%91-Command/">Design Patterns(十三) Command</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/">Design Patterns(十二) Template Method</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/">Algorithm Shell Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/">Algorithm Insertion Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/">Design Patterns(十一) Proxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/">Algorithm Selection Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/">Algorithm Bubble Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/">Design Patterns(十) Flyweight</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E4%B9%9D%E3%80%91-Facade/">Design Patterns(九) Facade</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/">Algorithm Sort Introduction</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E5%85%AB%E3%80%91-Composite/">Design Patterns(八) Composite</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E4%B8%83%E3%80%91-Decorator/">Design Patterns(七) Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/2020-03-13-Design-Patterns%E3%80%90%E5%85%AD%E3%80%91-Bridge/">Design Patterns(六) Bridge</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E4%BA%94%E3%80%91-Adapter/">Design Patterns(五) Adapter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E5%9B%9B%E3%80%91-Builder/">Design Patterns(四) Builder</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/2020-03-11-Data-Structure-Stack/">Data Structure Stack</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Funing Ma
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://mafuning.github.io/" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span><a href="https://github.com/mafuning" target="_blank">Github</a></span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
