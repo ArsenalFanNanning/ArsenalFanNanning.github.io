@@ -7,17 +7,17 @@
   
   
   
-  <title>Hello World | Funing Ma&#39;s Blog</title>
+  <title>Algorithm Greedy | Funing Ma&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hello World">
-<meta name="keywords" content="Hexo,Quick Start">
+  <meta name="description" content="Greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage[1] with the intent of finding a global optimum. In many problems, a gree">
+<meta name="keywords" content="algorithm,Greedy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2019&#x2F;11&#x2F;16&#x2F;2019-11-16-Hello-World&#x2F;index.html">
+<meta property="og:title" content="Algorithm Greedy">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;03&#x2F;29&#x2F;2020-03-29-Algorithm-Greedy&#x2F;index.html">
 <meta property="og:site_name" content="Funing Ma&#39;s Blog">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="Greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage[1] with the intent of finding a global optimum. In many problems, a gree">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-15T03:22:39.004Z">
+<meta property="og:updated_time" content="2020-03-29T00:57:40.809Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
@@ -229,11 +229,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-2019-11-16-Hello-World" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2020-03-29-Algorithm-Greedy" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/11/16/2019-11-16-Hello-World/" class="article-date">
-      <time datetime="2019-11-16T10:18:18.000Z" itemprop="datePublished">2019-11-16</time>
+      <a  href="/2020/03/29/2020-03-29-Algorithm-Greedy/" class="article-date">
+      <time datetime="2020-03-29T10:18:18.000Z" itemprop="datePublished">2020-03-29</time>
 </a>
 
     </div>
@@ -247,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Algorithm Greedy
     </h1>
   
 
@@ -257,13 +257,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/backend/">backend</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Quick-Start/" rel="tag">Quick Start</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -273,22 +273,50 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Hello World</p>
+        <p>Greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage[1] with the intent of finding a global optimum. In many problems, a greedy strategy does not usually produce an optimal solution, but nonetheless a greedy heuristic may yield locally optimal solutions that approximate a globally optimal solution in a reasonable amount of time.</p>
 <a id="more"></a>
 
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的是在某种意义上的局部最优解。贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。</p>
+<h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a><strong>贪心算法</strong></h1><p>贪心算法介绍</p>
+<p>1)贪婪算法(贪心算法)是指在对问题进行求解时，在每一步选择中都采取最好或者最优(即最有利)的选择，从而希望能够导致结果是最好或者最优的算法;</p>
+<p>2)贪婪算法所得到的结果不一定是最优的结果(有时候会是最优解)，但是都是相对近似(接近)最优解的结果。</p>
+<p>贪心算法应用-集合覆盖</p>
+<p>假设存在如下表的需要付费的广播台，以及广播台信号可以覆盖的地区。 如何选择最少的广播台，让所有的地区都可以接收到信号?</p>
+<table>
+<thead>
+<tr>
+<th>广播台</th>
+<th>覆盖地区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K1</td>
+<td>“北京”, “上海”, “天津”</td>
+</tr>
+<tr>
+<td>K2</td>
+<td>“广州”, “北京”, “深圳”</td>
+</tr>
+<tr>
+<td>K3</td>
+<td>“成都”, “上海”, “杭州”</td>
+</tr>
+<tr>
+<td>K4</td>
+<td>“上海”, “天津”</td>
+</tr>
+<tr>
+<td>K5</td>
+<td>“杭州”, “大连”</td>
+</tr>
+</tbody></table>
+<p>思路分析:<br>使用贪婪算法，效率高:<br>目前并没有算法可以快速计算得到准备的值， 使用贪婪算法，则可以得到非常接近的解，并且效率高。选择策略上，因为需要覆盖全部地区的最小集合:<br>1)遍历所有的广播电台, 找到一个覆盖了最多未覆盖的地区的电台(此电台可能包含一些已覆盖的地区，但没有关系） ；<br>2)将这个电台加入到一个集合中(比如ArrayList), 想办法把该电台覆盖的地区在下次比较时去掉；<br>3)重复第1步直到覆盖了全部的地区。</p>
+<p>贪心算法代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-03-29 7:59</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 贪心算法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Greedy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//初始化广播台信息</span></span><br><span class="line">        HashMap&lt;String, HashSet&lt;String&gt;&gt; broadcasts = <span class="keyword">new</span> HashMap&lt;String, HashSet&lt;String&gt;&gt;();</span><br><span class="line">        broadcasts.put(<span class="string">"K1"</span>, <span class="keyword">new</span> HashSet(Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"北京"</span>, <span class="string">"上海"</span>, <span class="string">"天津"</span>&#125;)));</span><br><span class="line">        broadcasts.put(<span class="string">"K2"</span>, <span class="keyword">new</span> HashSet(Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"广州"</span>, <span class="string">"北京"</span>, <span class="string">"深圳"</span>&#125;)));</span><br><span class="line">        broadcasts.put(<span class="string">"K3"</span>, <span class="keyword">new</span> HashSet(Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"成都"</span>, <span class="string">"上海"</span>, <span class="string">"杭州"</span>&#125;)));</span><br><span class="line">        broadcasts.put(<span class="string">"K4"</span>, <span class="keyword">new</span> HashSet(Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"上海"</span>, <span class="string">"天津"</span>&#125;)));</span><br><span class="line">        broadcasts.put(<span class="string">"K5"</span>, <span class="keyword">new</span> HashSet(Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"杭州"</span>, <span class="string">"大连"</span>&#125;)));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//需要覆盖的全部地区</span></span><br><span class="line">        HashSet&lt;String&gt; allAreas = <span class="keyword">new</span> HashSet(Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"北京"</span>, <span class="string">"上海"</span>, <span class="string">"天津"</span>, <span class="string">"广州"</span>, <span class="string">"深圳"</span>, <span class="string">"成都"</span>, <span class="string">"杭州"</span>, <span class="string">"大连"</span>&#125;));</span><br><span class="line">        <span class="comment">//所选择的广播台列表</span></span><br><span class="line">        List&lt;String&gt; selects = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        HashSet&lt;String&gt; tempSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">        String maxKey = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (allAreas.size() != <span class="number">0</span>) &#123;</span><br><span class="line">            maxKey = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (String key : broadcasts.keySet()) &#123;</span><br><span class="line">                tempSet.clear();</span><br><span class="line">                HashSet&lt;String&gt; areas = broadcasts.get(key);</span><br><span class="line">                tempSet.addAll(areas);</span><br><span class="line">                <span class="comment">//求出2个集合的交集，此时tempSet会被赋值为交集的内容，所以使用临时变量</span></span><br><span class="line">                tempSet.retainAll(allAreas);</span><br><span class="line">                <span class="comment">//如果该集合包含的地区数量比原本的集合多;tempSet.size() &gt; broadcasts.get(maxKey).size() 体现贪心算法，每次循环都要覆盖最多的地方，局部最优解</span></span><br><span class="line">                <span class="keyword">if</span> (tempSet.size() &gt; <span class="number">0</span> &amp;&amp; (maxKey == <span class="keyword">null</span> || tempSet.size() &gt; broadcasts.get(maxKey).size())) &#123;</span><br><span class="line">                    maxKey = key;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (maxKey != <span class="keyword">null</span>) &#123;</span><br><span class="line">                selects.add(maxKey);</span><br><span class="line">                allAreas.removeAll(broadcasts.get(maxKey));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(<span class="string">"selects:"</span> + selects);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>贪心算法注意事项和细节</p>
+<p>1)贪婪算法所得到的结果不一定是最优的结果(有时候会是最优解)，但是都是相对近似(接近)最优解的结果；<br>2)比如上题的算法选出的是K1, K2, K3, K5，符合覆盖了全部的地区；<br>3)但是我们发现 K2, K3,K4,K5 也可以覆盖全部地区，如果K2 的使用成本低于K1,那么我们上题的 K1, K2, K3, K5 虽然是满足条件，但是并不是最优的。</p>
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/b613ae9d77ff" target="_blank" rel="noopener">贪心算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://baike.baidu.com/item/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/5411800?fr=aladdin" target="_blank" rel="noopener">贪心算法-百度百科</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/qq_32400847/article/details/51336300?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">从零开始学贪心算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/av54029771/" target="_blank" rel="noopener">韩顺平数据结构和算法</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.tutorialspoint.com/data_structures_algorithms/greedy_algorithms.htm" target="_blank" rel="noopener">Data Structures - Greedy Algorithms</a></p>
 
       
     </div>
@@ -297,12 +325,12 @@
   
     
     <div class="copyright">
-        <p><span> Article Title:</span><a  href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></p>
+        <p><span> Article Title:</span><a  href="/2020/03/29/2020-03-29-Algorithm-Greedy/">Algorithm Greedy</a></p>
         <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
-        <p><span>  Release Time:</span>2019-11-16 18:18:18</p>
-        <p><span>   Last Update:</span>2019-12-15 11:22:39</p>
+        <p><span>  Release Time:</span>2020-03-29 18:18:18</p>
+        <p><span>   Last Update:</span>2020-03-29 08:57:40</p>
         <p>
-            <span>Original Link:</span><a class="post-url" href="/2019/11/16/2019-11-16-Hello-World/" title="Hello World">https://mafuning.github.io/2019/11/16/2019-11-16-Hello-World/</a>
+            <span>Original Link:</span><a class="post-url" href="/2020/03/29/2020-03-29-Algorithm-Greedy/" title="Algorithm Greedy">https://mafuning.github.io/2020/03/29/2020-03-29-Algorithm-Greedy/</a>
         </p>
         <p>
             <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
@@ -313,15 +341,11 @@
 
 <nav id="article-nav">
   
-    <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          GitHub Pages
-        
-      </div>
-    </a>
   
+    <a  href="/2020/03/28/2020-03-28-Algorithm-KMP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm KMP</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -331,7 +355,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#贪心算法"><span class="toc-number">2.</span> <span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -380,13 +404,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2019/11/17/2019-11-17-GitHub-Pages/" title="Previous: GitHub Pages">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
         
         <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
+            <a  href="/2020/03/28/2020-03-28-Algorithm-KMP/" title="Next: Algorithm KMP">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Greedy/">Algorithm Greedy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-KMP/">Algorithm KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/">Algorithm Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-Divide-And-Conquer/">Algorithm Divide-And-Conquer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Data-Structure-Graph/">Data Structure Graph</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/27/2020-03-27-Data-Structure-AVL-Tree/">Data Structure AVL Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/27/2020-03-27-Data-Structure-Binary-Sort-Tree/">Data Structure Binary Sort Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/26/2020-03-26-Data-Structure-Huffman-Tree/">Data Structure Huffman Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/25/2020-03-25-Algorithm-Heap-Sort/">Algorithm Heap Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/2020-03-24-Data-Structure-Binary-Tree/">Data Structure Binary Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/">Data Structure Hash Table</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Algorithm-Fibonacci-Search/">Algorithm Fibonacci Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Algorithm-Interpolation-Search/">Algorithm Interpolation Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Binary-Search/">Algorithm Binary Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Linear-Search/">Algorithm Linear Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Radix-Sort/">Algorithm Radix Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Merge-Sort/">Algorithm Merge Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/">Algorithm Quick Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/">Design Patterns(二十二) Chain of Responsibility</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/">Design Patterns(二十一) Strategy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E3%80%91-State/">Design Patterns(二十) State</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91-Interpreter/">Design Patterns(十九) Interpreter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AB%E3%80%91-Memento/">Design Patterns(十八) Memento</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%83%E3%80%91-Mediator/">Design Patterns(十七) Mediator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AD%E3%80%91-Observer/">Design Patterns(十六) Observer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%94%E3%80%91-Iterator/">Design Patterns(十五) Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E5%9B%9B%E3%80%91-Visitor/">Design Patterns(十四) Visitor</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%89%E3%80%91-Command/">Design Patterns(十三) Command</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/">Design Patterns(十二) Template Method</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/">Algorithm Shell Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/">Algorithm Insertion Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/">Design Patterns(十一) Proxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/">Algorithm Selection Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/">Algorithm Bubble Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/">Design Patterns(十) Flyweight</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E4%B9%9D%E3%80%91-Facade/">Design Patterns(九) Facade</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/">Algorithm Sort Introduction</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E5%85%AB%E3%80%91-Composite/">Design Patterns(八) Composite</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E4%B8%83%E3%80%91-Decorator/">Design Patterns(七) Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/2020-03-13-Design-Patterns%E3%80%90%E5%85%AD%E3%80%91-Bridge/">Design Patterns(六) Bridge</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E4%BA%94%E3%80%91-Adapter/">Design Patterns(五) Adapter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E5%9B%9B%E3%80%91-Builder/">Design Patterns(四) Builder</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/2020-03-11-Data-Structure-Stack/">Data Structure Stack</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
