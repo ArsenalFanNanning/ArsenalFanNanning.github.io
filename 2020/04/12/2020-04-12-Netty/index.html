@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Netty | Funing Ma&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Netty is an asynchronous event-driven network application frameworkfor rapid development of maintainable high performance protocol servers &amp;amp; clients.">
+<meta name="keywords" content="Nio,Netty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty">
+<meta property="og:url" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;04&#x2F;12&#x2F;2020-04-12-Netty&#x2F;index.html">
+<meta property="og:site_name" content="Funing Ma&#39;s Blog">
+<meta property="og:description" content="Netty is an asynchronous event-driven network application frameworkfor rapid development of maintainable high performance protocol servers &amp;amp; clients.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;04&#x2F;12&#x2F;2020-04-12-Netty&#x2F;netty_components.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;04&#x2F;12&#x2F;2020-04-12-Netty&#x2F;netty_framework.png">
+<meta property="og:updated_time" content="2020-04-12T10:14:16.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;mafuning.github.io&#x2F;2020&#x2F;04&#x2F;12&#x2F;2020-04-12-Netty&#x2F;netty_components.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Funing Ma&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Funing Ma</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Developer. Designer</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Links</li>
+                        
+                        
+                        <li>About</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">article</a></li>
+                        
+                            <li><a  href="/categories/backend">backend</a></li>
+                        
+                            <li><a  href="/categories/frontend">frontend</a></li>
+                        
+                            <li><a  href="/categories/database">database</a></li>
+                        
+                            <li><a  href="/categories/algorithm">algorithm</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                            
+                                <a class="fl twitter"  target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                            
+                                <a class="fl google"  target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/AVL-Tree/" style="font-size: 10px;">AVL Tree</a> <a href="/tags/Adapter/" style="font-size: 10px;">Adapter</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/Binary/" style="font-size: 10px;">Binary</a> <a href="/tags/Binary-Sort-Tree/" style="font-size: 10px;">Binary Sort Tree</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Bridge/" style="font-size: 10px;">Bridge</a> <a href="/tags/Bubble/" style="font-size: 10px;">Bubble</a> <a href="/tags/Builder/" style="font-size: 10px;">Builder</a> <a href="/tags/Chain-of-Responsibility/" style="font-size: 10px;">Chain of Responsibility</a> <a href="/tags/Characters/" style="font-size: 10px;">Characters</a> <a href="/tags/Chessboard/" style="font-size: 10px;">Chessboard</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Composite/" style="font-size: 10px;">Composite</a> <a href="/tags/DVCS/" style="font-size: 10px;">DVCS</a> <a href="/tags/Data-Structure/" style="font-size: 18px;">Data Structure</a> <a href="/tags/Decorator/" style="font-size: 10px;">Decorator</a> <a href="/tags/Design-Patterns/" style="font-size: 20px;">Design Patterns</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/Divide-And-Conquer/" style="font-size: 10px;">Divide-And-Conquer</a> <a href="/tags/Dynamic/" style="font-size: 10px;">Dynamic</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Facade/" style="font-size: 10px;">Facade</a> <a href="/tags/Factory/" style="font-size: 10px;">Factory</a> <a href="/tags/Fibonacci/" style="font-size: 10px;">Fibonacci</a> <a href="/tags/Floyd/" style="font-size: 10px;">Floyd</a> <a href="/tags/Flyweight/" style="font-size: 10px;">Flyweight</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash Table</a> <a href="/tags/Heap/" style="font-size: 10px;">Heap</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Huffman-Tree/" style="font-size: 10px;">Huffman Tree</a> <a href="/tags/Insertion/" style="font-size: 10px;">Insertion</a> <a href="/tags/Interpolation/" style="font-size: 10px;">Interpolation</a> <a href="/tags/Interpreter/" style="font-size: 10px;">Interpreter</a> <a href="/tags/Introduction/" style="font-size: 10px;">Introduction</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/Knight-Tour/" style="font-size: 10px;">Knight Tour</a> <a href="/tags/Kruskal/" style="font-size: 10px;">Kruskal</a> <a href="/tags/Linear/" style="font-size: 10px;">Linear</a> <a href="/tags/LinkedList/" style="font-size: 10px;">LinkedList</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mediator/" style="font-size: 10px;">Mediator</a> <a href="/tags/Memento/" style="font-size: 10px;">Memento</a> <a href="/tags/Merge/" style="font-size: 10px;">Merge</a> <a href="/tags/Netty/" style="font-size: 10px;">Netty</a> <a href="/tags/Nio/" style="font-size: 10px;">Nio</a> <a href="/tags/Observer/" style="font-size: 10px;">Observer</a> <a href="/tags/Optimal-Solutions/" style="font-size: 10px;">Optimal Solutions</a> <a href="/tags/Prim/" style="font-size: 10px;">Prim</a> <a href="/tags/Principles/" style="font-size: 10px;">Principles</a> <a href="/tags/Programming/" style="font-size: 10px;">Programming</a> <a href="/tags/Prototype/" style="font-size: 10px;">Prototype</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quick/" style="font-size: 10px;">Quick</a> <a href="/tags/Quick-Start/" style="font-size: 10px;">Quick Start</a> <a href="/tags/Radix/" style="font-size: 10px;">Radix</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Search/" style="font-size: 14px;">Search</a> <a href="/tags/Selection/" style="font-size: 10px;">Selection</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Shortest-Paths/" style="font-size: 14px;">Shortest Paths</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Sort/" style="font-size: 16px;">Sort</a> <a href="/tags/Sparse-Array/" style="font-size: 10px;">Sparse Array</a> <a href="/tags/Sql/" style="font-size: 10px;">Sql</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/Template-Method/" style="font-size: 10px;">Template Method</a> <a href="/tags/UpdateBatch/" style="font-size: 10px;">UpdateBatch</a> <a href="/tags/Visitor/" style="font-size: 10px;">Visitor</a> <a href="/tags/Webpages/" style="font-size: 10px;">Webpages</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com">jianshu</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer.Designer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Home">Funing Ma</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Home">Funing Ma</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Developer. Designer</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">article</a></li>
+                
+                    <li><a href="/categories/backend">backend</a></li>
+                
+                    <li><a href="/categories/frontend">frontend</a></li>
+                
+                    <li><a href="/categories/database">database</a></li>
+                
+                    <li><a href="/categories/algorithm">algorithm</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/mafuning" title="github">github</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/github" title="twitter">twitter</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/github" title="facebook">facebook</a>
+                    
+                        <a class="google" target="_blank" href="https://www.google.com/search?q=github" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2020-04-12-Netty" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/12/2020-04-12-Netty/" class="article-date">
+      <time datetime="2020-04-12T10:18:18.000Z" itemprop="datePublished">2020-04-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Netty
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Backend/">Backend</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Netty/" rel="tag">Netty</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nio/" rel="tag">Nio</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Netty is an asynchronous event-driven network application frameworkfor rapid development of maintainable high performance protocol servers &amp; clients.</p>
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>&ensp;&ensp;&ensp;&ensp;Netty 是一个基于NIO的客户、服务器端的编程框架，使用Netty 可以确保你快速和简单的开发出一个网络应用，例如实现了某种协议的客户、服务端应用。Netty相当于简化和流线化了网络应用的编程开发过程，例如：基于TCP和UDP的socket服务开发。</p>
+<h1 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a><strong>Netty</strong></h1><p>Netty的介绍：</p>
+<p>1)Netty 是由 JBOSS 提供的一个 Java 开源框架，现为 Github上的独立项目;<br>2)Netty 是一个异步的、基于事件驱动的网络应用框架，用以快速开发高性能、高可靠性的网络 IO 程序;<br>3)Netty主要针对在TCP协议下，面向Clients端的高并发应用，或者Peer-to-Peer场景下的大量数据持续传输的应用;<br>4)Netty本质是一个NIO框架，适用于服务器通讯相关的多种应用场景;<br>5)要透彻理解Netty ， 需要先学习 NIO ， 这样我们才能阅读 Netty 的源码。 </p>
+<p>Netty的优点：</p>
+<p>1)设计优雅：适用于各种传输类型的统一 API 阻塞和非阻塞 Socket；基于灵活且可扩展的事件模型，可以清晰地分离关注点；高度可定制的线程模型 - 单线程，一个或多个线程池;<br>2)使用方便：详细记录的 Javadoc，用户指南和示例；没有其他依赖项，JDK 5（Netty 3.x）或 6（Netty 4.x）就足够了;<br>3)高性能、吞吐量更高：延迟更低；减少资源消耗；最小化不必要的内存复制;<br>4)安全：完整的 SSL/TLS 和 StartTLS 支持;<br>5)社区活跃、不断更新：社区活跃，版本迭代周期短，发现的 Bug 可以被及时修复，同时，更多的新功能会被加入。</p>
+<p>Netty的组成：</p>
+<img src="/2020/04/12/2020-04-12-Netty/netty_components.png" class title="introduction">
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<p>Netty的工作架构：</p>
+<img src="/2020/04/12/2020-04-12-Netty/netty_framework.png" class title="introduction">
+
+<br>
+
+<p>Netty的工作原理：</p>
+<p>1) Netty抽象出两组线程池 BossGroup 专门负责接收客户端的连接, WorkerGroup 专门负责网络的读写;<br>2) BossGroup 和 WorkerGroup 类型都是 NioEventLoopGroup;<br>3) NioEventLoopGroup 相当于一个事件循环组, 这个组中含有多个事件循环 ，每一个事件循环是 NioEventLoop;<br>4) NioEventLoop 表示一个不断循环的执行处理任务的线程， 每个NioEventLoop 都有一个selector , 用于监听绑定在其上的socket的网络通讯;<br>5) NioEventLoopGroup 可以有多个线程, 即可以含有多个NioEventLoop;<br>6) 每个Boss NioEventLoop 循环执行的步骤有3步:<br>1.轮询accept 事件;<br>2.处理accept 事件 , 与client建立连接 , 生成NioScocketChannel , 并将其注册到某个worker NIOEventLoop 上的 selector;<br>3.处理任务队列的任务 ， 即 runAllTasks。<br>7) 每个 Worker NIOEventLoop 循环执行的步骤:<br>1.轮询read, write 事件;<br>2.处理i/o事件， 即read , write 事件，在对应NioScocketChannel 处理;<br>3.处理任务队列的任务 ， 即 runAllTasks。<br>8) 每个Worker NIOEventLoop  处理业务时，会使用pipeline(管道), pipeline 中包含了 channel , 即通过pipeline 可以获取到对应通道, 管道中维护了很多的 处理器。</p>
+<p>netty服务端代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.netty.bootstrap.ServerBootstrap;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.*;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.nio.NioEventLoopGroup;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.socket.nio.NioServerSocketChannel;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-04-05 13:45</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NettyServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建BossGroup 和 WorkerGroup</span></span><br><span class="line">        <span class="comment">//说明</span></span><br><span class="line">        <span class="comment">//1. 创建两个线程组 bossGroup 和 workerGroup</span></span><br><span class="line">        <span class="comment">//2. bossGroup 只是处理连接请求 , 真正的和客户端业务处理，会交给 workerGroup完成</span></span><br><span class="line">        <span class="comment">//3. 两个都是无限循环</span></span><br><span class="line">        <span class="comment">//4. bossGroup 和 workerGroup 含有的子线程(NioEventLoop)的个数</span></span><br><span class="line">        <span class="comment">//   默认实际 cpu核数 * 2</span></span><br><span class="line">        EventLoopGroup bossGroup = <span class="keyword">new</span> NioEventLoopGroup(<span class="number">1</span>);</span><br><span class="line">        EventLoopGroup workerGroup = <span class="keyword">new</span> NioEventLoopGroup(); <span class="comment">//8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//创建服务器端的启动对象，配置参数</span></span><br><span class="line">            ServerBootstrap bootstrap = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//使用链式编程来进行设置</span></span><br><span class="line">            bootstrap.group(bossGroup, workerGroup) <span class="comment">//设置两个线程组</span></span><br><span class="line">                    .channel(NioServerSocketChannel<span class="class">.<span class="keyword">class</span>) //使用<span class="title">NioSocketChannel</span> 作为服务器的通道实现</span></span><br><span class="line"><span class="class">                    .<span class="title">option</span>(<span class="title">ChannelOption</span>.<span class="title">SO_BACKLOG</span>, 128) // 设置线程队列得到连接个数</span></span><br><span class="line"><span class="class">                    .<span class="title">childOption</span>(<span class="title">ChannelOption</span>.<span class="title">SO_KEEPALIVE</span>, <span class="title">true</span>) //设置保持活动连接状态</span></span><br><span class="line"><span class="class">//                    .<span class="title">handler</span>(<span class="title">null</span>) // 该 <span class="title">handler</span>对应 <span class="title">bossGroup</span> , <span class="title">childHandler</span> 对应 <span class="title">workerGroup</span></span></span><br><span class="line"><span class="class">                    .<span class="title">childHandler</span>(<span class="title">new</span> <span class="title">NettyServerChannelInitializer</span>())</span>; <span class="comment">// 给我们的workerGroup 的 EventLoop 对应的管道设置处理器</span></span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">".....服务器 is ready..."</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绑定一个端口并且同步, 生成了一个 ChannelFuture 对象</span></span><br><span class="line">            <span class="comment">//启动服务器(并绑定端口)</span></span><br><span class="line">            ChannelFuture cf = bootstrap.bind(<span class="number">6668</span>).sync();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//给cf 注册监听器，监控我们关心的事件</span></span><br><span class="line">            cf.addListener(<span class="keyword">new</span> ChannelFutureListener() &#123;</span><br><span class="line">               <span class="comment">//@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operationComplete</span><span class="params">(ChannelFuture future)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (future.isSuccess()) &#123;</span><br><span class="line">                        System.out.println(<span class="string">"监听端口 6668 成功"</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">"监听端口 6668 失败"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//对关闭通道进行监听</span></span><br><span class="line">            cf.channel().closeFuture().sync();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            bossGroup.shutdownGracefully();</span><br><span class="line">            workerGroup.shutdownGracefully();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.netty.channel.Channel;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelInitializer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-04-05 14:11</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NettyServerChannelInitializer</span> <span class="keyword">extends</span> <span class="title">ChannelInitializer</span> </span>&#123;</span><br><span class="line">    <span class="comment">//给pipeline 设置处理器</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initChannel</span><span class="params">(Channel ch)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"客户socketchannel hashcode="</span> + ch.hashCode()); <span class="comment">//可以使用一个集合管理 SocketChannel， 再推送消息时，可以将业务加入到各个channel 对应的 NIOEventLoop 的 taskQueue 或者 scheduleTaskQueue</span></span><br><span class="line">        ch.pipeline().addLast(<span class="keyword">new</span> NettyServerHandler());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.netty.buffer.ByteBuf;</span><br><span class="line"><span class="keyword">import</span> io.netty.buffer.Unpooled;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.Channel;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelHandlerContext;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelInboundHandlerAdapter;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelPipeline;</span><br><span class="line"><span class="keyword">import</span> io.netty.util.CharsetUtil;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-04-05 14:12</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 说明</span></span><br><span class="line"><span class="comment"> * 1. 我们自定义一个Handler 需要继续netty 规定好的某个HandlerAdapter(规范)</span></span><br><span class="line"><span class="comment"> * 2. 这时我们自定义一个Handler , 才能称为一个handler</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NettyServerHandler</span> <span class="keyword">extends</span> <span class="title">ChannelInboundHandlerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取数据实际(这里我们可以读取客户端发送的消息)</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    1. ChannelHandlerContext ctx:上下文对象, 含有 管道pipeline , 通道channel, 地址</span></span><br><span class="line"><span class="comment">    2. Object msg: 就是客户端发送的数据 默认Object</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        //比如这里我们有一个非常耗时长的业务-&gt; 异步执行 -&gt; 提交该channel 对应的</span></span><br><span class="line"><span class="comment">        //NIOEventLoop 的 taskQueue中,</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        //解决方案1 用户程序自定义的普通任务</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        ctx.channel().eventLoop().execute(new Runnable() &#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void run() &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                try &#123;</span></span><br><span class="line"><span class="comment">                    Thread.sleep(5 * 1000);</span></span><br><span class="line"><span class="comment">                    ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(&gt;^ω^&lt;)喵2", CharsetUtil.UTF_8));</span></span><br><span class="line"><span class="comment">                    System.out.println("channel code=" + ctx.channel().hashCode());</span></span><br><span class="line"><span class="comment">                &#125; catch (Exception ex) &#123;</span></span><br><span class="line"><span class="comment">                    System.out.println("发生异常" + ex.getMessage());</span></span><br><span class="line"><span class="comment">                &#125;</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        ctx.channel().eventLoop().execute(new Runnable() &#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void run() &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                try &#123;</span></span><br><span class="line"><span class="comment">                    Thread.sleep(5 * 1000);</span></span><br><span class="line"><span class="comment">                    ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(&gt;^ω^&lt;)喵3", CharsetUtil.UTF_8));</span></span><br><span class="line"><span class="comment">                    System.out.println("channel code=" + ctx.channel().hashCode());</span></span><br><span class="line"><span class="comment">                &#125; catch (Exception ex) &#123;</span></span><br><span class="line"><span class="comment">                    System.out.println("发生异常" + ex.getMessage());</span></span><br><span class="line"><span class="comment">                &#125;</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        //解决方案2 : 用户自定义定时任务 -》 该任务是提交到 scheduleTaskQueue中</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        ctx.channel().eventLoop().schedule(new Runnable() &#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void run() &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                try &#123;</span></span><br><span class="line"><span class="comment">                    Thread.sleep(5 * 1000);</span></span><br><span class="line"><span class="comment">                    ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(&gt;^ω^&lt;)喵4", CharsetUtil.UTF_8));</span></span><br><span class="line"><span class="comment">                    System.out.println("channel code=" + ctx.channel().hashCode());</span></span><br><span class="line"><span class="comment">                &#125; catch (Exception ex) &#123;</span></span><br><span class="line"><span class="comment">                    System.out.println("发生异常" + ex.getMessage());</span></span><br><span class="line"><span class="comment">                &#125;</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;, 5, TimeUnit.SECONDS);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        System.out.println("go on ...");*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"服务器读取线程 "</span> + Thread.currentThread().getName() + <span class="string">" channle ="</span> + ctx.channel());</span><br><span class="line">        System.out.println(<span class="string">"server ctx ="</span> + ctx);</span><br><span class="line">        System.out.println(<span class="string">"看看channel 和 pipeline的关系"</span>);</span><br><span class="line">        Channel channel = ctx.channel();</span><br><span class="line">        ChannelPipeline pipeline = ctx.pipeline(); <span class="comment">//本质是一个双向链接, 出站入站</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//将 msg 转成一个 ByteBuf</span></span><br><span class="line">        <span class="comment">//ByteBuf 是 Netty 提供的，不是 NIO 的 ByteBuffer.</span></span><br><span class="line">        ByteBuf buf = (ByteBuf) msg;</span><br><span class="line">        System.out.println(<span class="string">"客户端发送消息是:"</span> + buf.toString(CharsetUtil.UTF_8));</span><br><span class="line">        System.out.println(<span class="string">"客户端地址:"</span> + channel.remoteAddress());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据读取完毕</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">channelReadComplete</span><span class="params">(ChannelHandlerContext ctx)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//writeAndFlush 是 write + flush</span></span><br><span class="line">        <span class="comment">//将数据写入到缓存，并刷新</span></span><br><span class="line">        <span class="comment">//一般讲，我们对这个发送的数据进行编码</span></span><br><span class="line">        ctx.writeAndFlush(Unpooled.copiedBuffer(<span class="string">"hello, 客户端~(&gt;^ω^&lt;)喵1"</span>, CharsetUtil.UTF_8));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//处理异常, 一般是需要关闭通道</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exceptionCaught</span><span class="params">(ChannelHandlerContext ctx, Throwable cause)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ctx.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>netty客户端代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.netty.bootstrap.Bootstrap;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelFuture;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.EventLoopGroup;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.nio.NioEventLoopGroup;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.socket.nio.NioSocketChannel;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-04-05 15:26</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NettyClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//客户端需要一个事件循环组</span></span><br><span class="line">        EventLoopGroup group = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//创建客户端启动对象</span></span><br><span class="line">            <span class="comment">//注意客户端使用的不是 ServerBootstrap 而是 Bootstrap</span></span><br><span class="line">            Bootstrap bootstrap = <span class="keyword">new</span> Bootstrap();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置相关参数</span></span><br><span class="line">            bootstrap.group(group) <span class="comment">//设置线程组</span></span><br><span class="line">                    .channel(NioSocketChannel<span class="class">.<span class="keyword">class</span>) // 设置客户端通道的实现类(反射)</span></span><br><span class="line"><span class="class">                    .<span class="title">handler</span>(<span class="title">new</span> <span class="title">NettyClientChannelInitializer</span>())</span>;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"客户端 ok.."</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//启动客户端去连接服务器端</span></span><br><span class="line">            <span class="comment">//关于 ChannelFuture 要分析，涉及到netty的异步模型</span></span><br><span class="line">            ChannelFuture channelFuture = bootstrap.connect(<span class="string">"127.0.0.1"</span>, <span class="number">6668</span>).sync();</span><br><span class="line">            <span class="comment">//给关闭通道进行监听</span></span><br><span class="line">            channelFuture.channel().closeFuture().sync();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">            group.shutdownGracefully();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.netty.channel.Channel;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelInitializer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-04-05 15:51</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NettyClientChannelInitializer</span> <span class="keyword">extends</span> <span class="title">ChannelInitializer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initChannel</span><span class="params">(Channel ch)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ch.pipeline().addLast(<span class="keyword">new</span> NettyClientHandler()); <span class="comment">//加入自己的处理器</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.netty.buffer.ByteBuf;</span><br><span class="line"><span class="keyword">import</span> io.netty.buffer.Unpooled;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelHandlerContext;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelInboundHandlerAdapter;</span><br><span class="line"><span class="keyword">import</span> io.netty.util.CharsetUtil;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: Arsenal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020-04-05 15:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NettyClientHandler</span> <span class="keyword">extends</span> <span class="title">ChannelInboundHandlerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当通道就绪就会触发该方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">channelActive</span><span class="params">(ChannelHandlerContext ctx)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"client "</span> + ctx);</span><br><span class="line">        ctx.writeAndFlush(Unpooled.copiedBuffer(<span class="string">"hello, server: (&gt;^ω^&lt;)喵"</span>, CharsetUtil.UTF_8));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当通道有读取事件时，会触发</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        ByteBuf buf = (ByteBuf) msg;</span><br><span class="line">        System.out.println(<span class="string">"服务器回复的消息:"</span> + buf.toString(CharsetUtil.UTF_8));</span><br><span class="line">        System.out.println(<span class="string">"服务器的地址： "</span>+ ctx.channel().remoteAddress());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exceptionCaught</span><span class="params">(ChannelHandlerContext ctx, Throwable cause)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        cause.printStackTrace();</span><br><span class="line">        ctx.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a><strong>延伸</strong></h1><p>&ensp;&ensp;&ensp;&ensp;<a href="https://netty.io/" target="_blank" rel="noopener">Netty</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.jianshu.com/p/40a2004a531b" target="_blank" rel="noopener">彻底理解Netty</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://baike.baidu.com/item/Netty/10061624?fr=aladdin" target="_blank" rel="noopener">Netty-百度百科</a><br>&ensp;&ensp;&ensp;&ensp;<a href="https://www.bilibili.com/video/BV1DJ411m7NR?p=1" target="_blank" rel="noopener">尚硅谷韩顺平Netty视频教程（2019发布）</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span> Article Title:</span><a  href="/2020/04/12/2020-04-12-Netty/">Netty</a></p>
+        <p><span>Article Author:</span><a  href="/" title="Visit Funing Ma Personal Blog">Funing Ma</a></p>
+        <p><span>  Release Time:</span>2020-04-12 18:18:18</p>
+        <p><span>   Last Update:</span>2020-04-12 18:14:16</p>
+        <p>
+            <span>Original Link:</span><a class="post-url" href="/2020/04/12/2020-04-12-Netty/" title="Netty">https://mafuning.github.io/2020/04/12/2020-04-12-Netty/</a>
+        </p>
+        <p>
+            <span>License Agreement:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="https://freedomdefined.org/Licenses/CC-BY-SA-4.0" target="_blank" title="CC-BY-SA-4.0" target = "_blank">"CC-BY-SA-4.0"</a>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm Knight Tour</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Content</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Netty"><span class="toc-number">2.</span> <span class="toc-text">Netty</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸"><span class="toc-number">3.</span> <span class="toc-text">延伸</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="hide"  title="click hide content or display content">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "hide";
+    var valueShow = "dispaly";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="Home"><i class="fa fa-home"></i></a>
+        
+        <a title="Article List"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/" title="Next: Algorithm Knight Tour">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/2020-04-12-Netty/">Netty</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/2020-03-31-Algorithm-Knight-Tour/">Algorithm Knight Tour</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/2020-03-30-Algorithm-Floyd/">Algorithm Floyd</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Dijkstra/">Algorithm Dijkstra</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Kruskal/">Algorithm Kruskal</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Prim/">Algorithm Prim</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/2020-03-29-Algorithm-Greedy/">Algorithm Greedy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-KMP/">Algorithm KMP</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-Dynamic-Programming/">Algorithm Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Algorithm-Divide-And-Conquer/">Algorithm Divide-And-Conquer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/2020-03-28-Data-Structure-Graph/">Data Structure Graph</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/27/2020-03-27-Data-Structure-AVL-Tree/">Data Structure AVL Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/27/2020-03-27-Data-Structure-Binary-Sort-Tree/">Data Structure Binary Sort Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/26/2020-03-26-Data-Structure-Huffman-Tree/">Data Structure Huffman Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/25/2020-03-25-Algorithm-Heap-Sort/">Algorithm Heap Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/2020-03-24-Data-Structure-Binary-Tree/">Data Structure Binary Tree</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Data-Structure-Hash-Table/">Data Structure Hash Table</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Algorithm-Fibonacci-Search/">Algorithm Fibonacci Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/23/2020-03-23-Algorithm-Interpolation-Search/">Algorithm Interpolation Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Binary-Search/">Algorithm Binary Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Linear-Search/">Algorithm Linear Search</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Radix-Sort/">Algorithm Radix Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Merge-Sort/">Algorithm Merge Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/2020-03-22-Algorithm-Quick-Sort/">Algorithm Quick Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%91-Chain-of-Responsibility/">Design Patterns(二十二) Chain of Responsibility</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%91-Strategy/">Design Patterns(二十一) Strategy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E4%BA%8C%E5%8D%81%E3%80%91-State/">Design Patterns(二十) State</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91-Interpreter/">Design Patterns(十九) Interpreter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/21/2020-03-21-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AB%E3%80%91-Memento/">Design Patterns(十八) Memento</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%83%E3%80%91-Mediator/">Design Patterns(十七) Mediator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/2020-03-20-Design-Patterns%E3%80%90%E5%8D%81%E5%85%AD%E3%80%91-Observer/">Design Patterns(十六) Observer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%94%E3%80%91-Iterator/">Design Patterns(十五) Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/19/2020-03-19-Design-Patterns%E3%80%90%E5%8D%81%E5%9B%9B%E3%80%91-Visitor/">Design Patterns(十四) Visitor</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%89%E3%80%91-Command/">Design Patterns(十三) Command</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Design-Patterns%E3%80%90%E5%8D%81%E4%BA%8C%E3%80%91-Template-Method/">Design Patterns(十二) Template Method</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/18/2020-03-18-Algorithm-Shell-Sort/">Algorithm Shell Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Insertion-Sort/">Algorithm Insertion Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Design-Patterns%E3%80%90%E5%8D%81%E4%B8%80%E3%80%91-Proxy/">Design Patterns(十一) Proxy</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/2020-03-17-Algorithm-Selection-Sort/">Algorithm Selection Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Algorithm-Bubble-Sort/">Algorithm Bubble Sort</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E5%8D%81%E3%80%91-Flyweight/">Design Patterns(十) Flyweight</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/16/2020-03-16-Design-Patterns%E3%80%90%E4%B9%9D%E3%80%91-Facade/">Design Patterns(九) Facade</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/15/2020-03-15-Algorithm-Sort-Introduction/">Algorithm Sort Introduction</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E5%85%AB%E3%80%91-Composite/">Design Patterns(八) Composite</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/2020-03-14-Design-Patterns%E3%80%90%E4%B8%83%E3%80%91-Decorator/">Design Patterns(七) Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/13/2020-03-13-Design-Patterns%E3%80%90%E5%85%AD%E3%80%91-Bridge/">Design Patterns(六) Bridge</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E4%BA%94%E3%80%91-Adapter/">Design Patterns(五) Adapter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/12/2020-03-12-Design-Patterns%E3%80%90%E5%9B%9B%E3%80%91-Builder/">Design Patterns(四) Builder</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/2020-03-11-Data-Structure-Stack/">Data Structure Stack</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/10/2020-03-10-Design-Patterns%E3%80%90%E4%B8%89%E3%80%91-Prototype/">Design Patterns(三) Prototype</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Data-Structure-LinkedList/">Data Structure LinkedList</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/2020-03-09-Design-Patterns%E3%80%90%E4%BA%8C%E3%80%91-Factory/">Design Patterns(二) Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Design-Patterns%E3%80%90%E4%B8%80%E3%80%91-Singleton/">Design Patterns(一) Singleton</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Sparse-Array/">Data Structure Sparse Array</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/07/2020-03-07-Data-Structure-Queue/">Data Structure Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/06/2020-03-06-Design-Principles/">Design Principles</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-Mysql-Oracle-Mybatis-Annotation-Sql/">Mysql Oracle Mybatis Annotation Sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/2019-12-03-Mysql-UpdateBatch-Error/">Mysql UpdateBatch Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/2019-11-19-Mastering-Markdown/">Mastering Markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/2019-11-18-Git-Handbook/">Git Handbook</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/17/2019-11-17-GitHub-Pages/">GitHub Pages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/16/2019-11-16-Hello-World/">Hello World</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 Funing Ma
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://mafuning.github.io/" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span><a href="https://github.com/mafuning" target="_blank">Github</a></span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
